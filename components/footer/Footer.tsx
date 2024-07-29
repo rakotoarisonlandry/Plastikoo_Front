@@ -40,7 +40,7 @@ const listFooter = [
 
 const Footer = (props: Props) => {
   return (
-    <footer className="bg-primary text-white w-full p-14 mt-10">
+    <footer className="bg-primary text-white w-full p-14 ">
       <div className="flex justify-around items-center relative">
         <Image
           src="/bgFooter.png"

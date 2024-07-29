@@ -13,49 +13,49 @@ const team: TeamMember[] = [
   {
     name: "NOMBANISTSOA Sarobidy",
     role: "PROJECT MANAGER",
-    image: "/TSITOO.png", // Remplacez par le chemin de l'image
+    image: "/TSITOO.png", 
     bgColor: "bg-green-500",
   },
   {
     name: "Randrianarinaivo I. Asandratra",
     role: "RECHERCHE - DÉVELOPPEMENT",
-    image: "/ASAH.png", // Remplacez par le chemin de l'image
+    image: "/ASAH.png", 
     bgColor: "bg-blue-500",
   },
   {
     name: "NIRINAHARIMANANA Sarobidy",
     role: "MANAGEMENT - COMMUNICATION",
-    image: "/SAROBIDY.png", // Remplacez par le chemin de l'image
+    image: "/SAROBIDY.png", 
     bgColor: "bg-orange-500",
   },
   {
     name: "SARRON Sandra",
     role: "MANAGEMENT - COMMUNICATION",
-    image: "/SARRON.png", // Remplacez par le chemin de l'image
+    image: "/SARRON.png", 
     bgColor: "bg-red-500",
   },
   {
     name: "Randrianarisoa Yvon",
     role: "GÉNIE MÉCANIQUE",
-    image: "/YVON.png", // Remplacez par le chemin de l'image
+    image: "/YVON.png", 
     bgColor: "bg-blue-500",
   },
   {
     name: "Razafindraibe Vanessa",
     role: "DESIGN UI & UX",
-    image: "/VANESSA.png", // Remplacez par le chemin de l'image
+    image: "/VANESSA.png", 
     bgColor: "bg-orange-500",
   },
   {
     name: "RANDRIANARISON Johns",
     role: "DÉVELOPPEUR",
-    image: "/JOHNS.png", // Remplacez par le chemin de l'image
+    image: "/JOHNS.png", 
     bgColor: "bg-green-500",
   },
   {
-    name: "RAKOTOARISON Landry",
+    name: "RAKOTOARISON Tsaraefadahy Landry Brigea",
     role: "DÉVELOPPEUR",
-    image: "/LANDRY.png", // Remplacez par le chemin de l'image
+    image: "/LANDRY.png", 
     bgColor: "bg-red-500",
   },
 ];
