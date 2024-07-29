@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-import { Reveal } from "../utils/Reveal";
+import { Reveal } from "../../utils/Reveal";
 
 type Props = {};
 

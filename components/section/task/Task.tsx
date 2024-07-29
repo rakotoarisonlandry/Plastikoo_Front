@@ -5,9 +5,9 @@ import { GiWaterRecycling } from "react-icons/gi";
 import { TbTransformFilled } from "react-icons/tb";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Image from "next/image";
-import { Reveal } from "../utils/Reveal";
-import { RevealRight } from "../utils/RevealRight";
-import { RevealLeft } from "../utils/RevealLeft";
+import { Reveal } from "../../utils/Reveal";
+import { RevealRight } from "../../utils/RevealRight";
+import { RevealLeft } from "../../utils/RevealLeft";
 type Props = {};
 
 const process = [
