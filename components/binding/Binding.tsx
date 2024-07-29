@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Reveal } from "../../utils/Reveal";
+import { Reveal } from "../utils/Reveal";
 
 type Props = {};
 

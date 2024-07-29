@@ -59,7 +59,9 @@ const Footer = (props: Props) => {
               </div>
             ))}
           </div>
-          <div></div>
+          <div className="text-white text-[15px] font-semibold">
+            Visitez nos réseau sociaux
+          </div>
           <SocioLink />
         </div>
 

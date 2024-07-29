@@ -1,8 +1,8 @@
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-import { Reveal } from "../../utils/Reveal";
+import { Reveal } from "../utils/Reveal";
 
 type Props = {};
 
@@ -41,6 +41,13 @@ const LIkeNumber = (props: Props) => {
     new Array(card.length).fill(false)
   );
 
+  // Utiliser useCallback pour éviter que la fonction ne soit recréée à chaque rendu
+  const handleInViewChange = useCallback((inView: boolean, index: number) => {
+    setInViewStates((prev) =>
+      prev.map((state, i) => (i === index ? inView : state))
+    );
+  }, []);
+
   return (
     <div className="flex justify-center gap-7 mt-24 mb-36 relative">
       <Image
@@ -54,15 +61,11 @@ const LIkeNumber = (props: Props) => {
         <InViewMonitor
           key={key}
           index={key}
-          onInViewChange={(inView) =>
-            setInViewStates((prev) =>
-              prev.map((state, i) => (i === key ? inView : state))
-            )
-          }
+          onInViewChange={handleInViewChange}
         >
           {inViewStates[key] && (
             <Reveal>
-              <div className="bg-primary hover:translate-y-3 transition duration-300 w-48 h-44 flex flex-col items-center justify-center z-30 text-white pt-5  pb-5 pr-5 pl-5 rounded-xl">
+              <div className="bg-primary hover:translate-y-3 transition duration-300 w-48 h-44 flex flex-col items-center justify-center z-30 text-white pt-5 pb-5 pr-5 pl-5 rounded-xl">
                 <h1 className="font-extrabold text-3xl pb-2">
                   <CountUp
                     start={0}

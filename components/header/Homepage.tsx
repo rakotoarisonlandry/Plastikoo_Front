@@ -3,9 +3,9 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Slideshow from "../slideshow/Slideshow";
-import { Button } from "../../ui/button";
-import { Reveal } from "../../utils/Reveal";
-import { RevealLeft } from "../../utils/RevealLeft";
+import { Button } from "../ui/button";
+import { Reveal } from "../utils/Reveal";
+import { RevealLeft } from "../utils/RevealLeft";
 import SocioLink from "../linkSocio/SocioLink";
 type Props = {};
 

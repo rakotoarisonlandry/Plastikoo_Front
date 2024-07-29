@@ -32,7 +32,7 @@ const Solution: React.FC<Props> = () => {
       <h2 className="text-[40px] font-bold mb-2">Nos valeurs</h2>
       <p className="text-[15px] mb-8 px-10 md:px-20 lg:px-44">
         Chez Plastikôo, nos valeurs sont au cœur de tout ce que nous faisons.
-        Elles reflètent notre engagement envers l'environnement et la
+        Elles reflètent notre engagement envers environnement et la
         communauté, orientant chaque étape de notre mission pour un futur plus
         durable.
       </p>

@@ -1,8 +1,8 @@
 import { Image } from "antd";
 import React from "react";
 import { FaArrowDownLong } from "react-icons/fa6";
-import { Reveal } from "../../utils/Reveal";
-import { Button } from "../../ui/button";
+import { Reveal } from "../utils/Reveal";
+import { Button } from "../ui/button";
 type Props = {};
 const products = [
   {

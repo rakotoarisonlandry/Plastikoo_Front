@@ -17,7 +17,7 @@ const Contact = (props: Props) => {
           <h1 className="text-4xl font-semibold  mb-4">
             Ensemble, construisons un avenir durable
           </h1>
-          <p className="text-lg mb-4 text-[14px]">
+          <p className="text-lg mb-4 space-y-0 text-[13px]">
             Votre contribution fait la différence. Rejoignez notre communauté et
             offrons un avenir meilleur pour les générations futures. Ensemble,
             luttons contre la pollution plastique, transformons ce défi en
@@ -30,14 +30,16 @@ const Contact = (props: Props) => {
       </div>
 
       <div className="w-[80%] bg-secondary p-8 flex flex-col justify-center items-center">
-        <h2 className="text-3xl font-bold mb-8 text-white">Contactez-nous</h2>
-        <p className="text-[15px] text-white">
-          Nous serions ravis de vous entendre ! Que vous souhaitiez rejoindre
-          notre initiative ou devenir notre partenaire ou en savoir plus sur nos
-          produits , votre message est important pour nous. Remplissez le
-          formulaire ci-dessous avec vos coordonnées et votre demande. Ensemble,
-          faisons la différence.
-        </p>
+        <div className="pl-28 pr-7">
+          <h2 className="text-3xl font-bold mb-6 text-white">Contactez-nous</h2>
+          <p className="text-[14px] mb-8 text-white">
+            Nous serions ravis de vous entendre ! Que vous souhaitiez rejoindre
+            notre initiative ou devenir notre partenaire ou en savoir plus sur
+            nos produits , votre message est important pour nous. Remplissez le
+            formulaire ci-dessous avec vos coordonnées et votre demande.
+            Ensemble, faisons la différence.
+          </p>
+        </div>
         <form className="w-full max-w-lg">
           <div className="flex mb-4">
             <div className="w-1/2 mr-2">
@@ -95,7 +97,7 @@ const Contact = (props: Props) => {
                 className="shadow appearance-none border rounded w-full text-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="reason"
               >
-                <option>Choisir une raison</option>
+                <option>Notre partenaire</option>
                 <option>Information</option>
                 <option>Support</option>
                 <option>Autre</option>
@@ -118,7 +120,7 @@ const Contact = (props: Props) => {
           </div>
           <div className="flex items-center justify-end">
             <button
-              className="bg-dark text-white font-bold hover:scale-x-105 scale-y-105 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-dark text-white font-bold hover:scale-x-105 transition duration-300 hover:scale-y-105 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
             >
               Envoyer
