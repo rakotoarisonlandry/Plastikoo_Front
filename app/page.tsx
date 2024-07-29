@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Binding from "@/components/binding/Binding";
 import Product from "@/components/find/Product";
 import Footer from "@/components/footer/Footer";
@@ -15,19 +15,18 @@ import Image from "next/image";
 export default function Home() {
   return (
     // <Reveal>
-      <div className="min-h-screen flex flex-col">
-        <main className="flex-grow">
-          <Homepage />
-          <Task />
-          <Mission />
-          <Binding />
-          <Solution />
-          <LIkeNumber />
-          <Product />
-          <Team />
-        </main>
-        <Footer />
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow">
+        <Homepage />
+        <Task />
+        <Mission />
+        <Binding />
+        <Solution />
+        <LIkeNumber />
+        <Product />
+        <Team />
+      </main>
+    </div>
     // </Reveal>
   );
 }
