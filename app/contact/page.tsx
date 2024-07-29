@@ -6,86 +6,112 @@ type Props = {};
 const Contact = (props: Props) => {
   return (
     <div className="flex w-full h-screen bg-secondary">
-      {/* Left side with image and call to action */}
       <div className="w-1/2 relative">
         <Image
-          src="/images/contact.jpg"
+          src="/slide1.png"
           alt="Contact image"
           layout="fill"
           objectFit="cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white p-8">
-          <h1 className="text-4xl font-bold mb-4">Ensemble, construisons un avenir durable</h1>
-          <p className="text-xl mb-4">Vous voulez rejoindre notre communauté?</p>
-          <button className="bg-primary text-white px-6 py-3 rounded-full">Rejoignez-nous</button>
+        <div className="absolute inset-0 bg-black bg-opacity-50  flex flex-col items-start justify-center text-white p-14">
+          <h1 className="text-4xl font-semibold  mb-4">
+            Ensemble, construisons un avenir durable
+          </h1>
+          <p className="text-lg mb-4 text-[14px]">
+            Votre contribution fait la différence. Rejoignez notre communauté et
+            offrons un avenir meilleur pour les générations futures. Ensemble,
+            luttons contre la pollution plastique, transformons ce défi en
+            opportunité, et créons un impact positif et durable pour Madagascar.
+          </p>
+          <button className="bg-primary hover:scale-x-105 hover:scale-y-105 duration-300 transition text-white px-6 py-2 rounded-lg">
+            Rejoignez-nous
+          </button>
         </div>
       </div>
 
-      {/* Right side with contact form */}
-      <div className="w-1/2 bg-blue-500 p-8 flex flex-col justify-center items-center">
+      <div className="w-[80%] bg-secondary p-8 flex flex-col justify-center items-center">
         <h2 className="text-3xl font-bold mb-8 text-white">Contactez-nous</h2>
         <form className="w-full max-w-lg">
-          <div className="mb-4">
-            <label className="block text-white text-sm font-bold mb-2" htmlFor="name">
-              Votre nom
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="name"
-              type="text"
-              placeholder="Votre nom"
-            />
+          <div className="flex mb-4">
+            <div className="w-1/2 mr-2">
+              <label
+                className="block text-white text-sm font-bold mb-2"
+                htmlFor="name"
+              >
+                Votre nom
+              </label>
+              <input
+                className="shadow appearance-none border text-sm rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                type="text"
+                placeholder="Votre nom"
+              />
+            </div>
+            <div className="w-1/2 ml-2">
+              <label
+                className="block text-white text-sm font-bold mb-2"
+                htmlFor="phone"
+              >
+                Votre prénom
+              </label>
+              <input
+                className="shadow appearance-none border text-sm rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="phone"
+                type="text"
+                placeholder="Votre prénom"
+              />
+            </div>
+          </div>
+          <div className="flex mb-4">
+            <div className="w-1/2 mr-2">
+              <label
+                className="block text-white text-sm font-bold mb-2"
+                htmlFor="email"
+              >
+                Votre adresse e-mail
+              </label>
+              <input
+                className="shadow appearance-none border rounded text-sm w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="email"
+                type="email"
+                placeholder="Votre adresse e-mail"
+              />
+            </div>
+            <div className="w-1/2 ml-2">
+              <label
+                className="block text-white text-sm font-bold mb-2"
+                htmlFor="reason"
+              >
+                Raison de contact
+              </label>
+              <select
+                className="shadow appearance-none border rounded w-full text-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="reason"
+              >
+                <option>Choisir une raison</option>
+                <option>Information</option>
+                <option>Support</option>
+                <option>Autre</option>
+              </select>
+            </div>
           </div>
           <div className="mb-4">
-            <label className="block text-white text-sm font-bold mb-2" htmlFor="phone">
-              Votre prénom
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="phone"
-              type="text"
-              placeholder="Votre prénom"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-white text-sm font-bold mb-2" htmlFor="email">
-              Votre adresse e-mail
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
-              type="email"
-              placeholder="Votre adresse e-mail"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-white text-sm font-bold mb-2" htmlFor="reason">
-              Raison de contact
-            </label>
-            <select
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="reason"
+            <label
+              className="block text-white text-sm font-bold mb-2"
+              htmlFor="message"
             >
-              <option>Choisir une raison</option>
-              <option>Information</option>
-              <option>Support</option>
-              <option>Autre</option>
-            </select>
-          </div>
-          <div className="mb-4">
-            <label className="block text-white text-sm font-bold mb-2" htmlFor="message">
               Votre message
             </label>
             <textarea
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded text-sm w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="message"
               rows={4}
               placeholder="Votre message"
             ></textarea>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-end">
             <button
-              className="bg-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-dark text-white font-bold hover:scale-x-105 scale-y-105 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
             >
               Envoyer
