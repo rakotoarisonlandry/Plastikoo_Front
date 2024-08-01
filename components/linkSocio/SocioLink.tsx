@@ -1,25 +1,22 @@
 import React from "react";
-import { FaFacebookF } from "react-icons/fa";
+import { FaFacebookF, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
-import { FaLinkedin } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { Reveal } from "../utils/Reveal";
 import { RevealLeft } from "../utils/RevealLeft";
-import Image from "next/image";
 import Link from "next/link";
+
 type Props = {};
 
 const SocioLink = (props: Props) => {
   return (
-    <div className="flex justify-center z-40  mt-24">
-      <div className="flex w-60 justify-center items-center space-x-4 ">
+    <div className="fixed right-20 top-1/2 transform -translate-y-1/2 z-40">
+      <div className="flex flex-col items-center space-y-4 bg-primary p-2 rounded-lg">
         <RevealLeft>
           <Link
             href="https://www.facebook.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="bg-white hover:scale-x-125 hover:scale-y-125 transition duration-500   text-primary rounded-full p-2">
+            <div className="bg-white text-primary rounded-full p-2 hover:scale-110 transition-transform duration-300">
               <FaFacebookF />
             </div>
           </Link>
@@ -30,7 +27,7 @@ const SocioLink = (props: Props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="bg-white hover:scale-x-125 hover:scale-y-125 transition duration-500  text-primary rounded-full p-2">
+            <div className="bg-white text-primary rounded-full p-2 hover:scale-110 transition-transform duration-300">
               <AiFillInstagram />
             </div>
           </Link>
@@ -41,7 +38,7 @@ const SocioLink = (props: Props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="bg-white hover:scale-x-125 hover:scale-y-125 transition duration-500  text-primary rounded-full p-2">
+            <div className="bg-white text-primary rounded-full p-2 hover:scale-110 transition-transform duration-300">
               <FaLinkedin />
             </div>
           </Link>
@@ -52,7 +49,7 @@ const SocioLink = (props: Props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="bg-white hover:scale-x-125 hover:scale-y-125 transition duration-500  text-primary rounded-full p-2">
+            <div className="bg-white text-primary rounded-full p-2 hover:scale-110 transition-transform duration-300">
               <FaYoutube />
             </div>
           </Link>
