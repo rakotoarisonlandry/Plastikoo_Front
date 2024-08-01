@@ -12,18 +12,15 @@ function Header({}: Props) {
   const pathname = usePathname();
 
   const linkClasses = (path: string) =>
-    `px-3 py-2 rounded-md text-sm font-medium ${
-      pathname === path
-        ? "text-black font-bold"
-        : "text-gray-700 hover:text-black"
+    `px-4 py-2  text-sm font-medium ${
+      pathname === path ? "text-primary bg-white" : "text-white bg-primary"
     }`;
 
   return (
     <div className="block mb-20">
-      <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50">
-        {/* <Reveal> */}
-        <nav className="max-w-7xl py-1.5 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+      <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 backdrop-filter backdrop-blur-lg bg-opacity-70">
+        <nav className="max-w-7xl py-1.5  pt-6 mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center space-x-32 h-20">
             <Reveal>
               <div className="flex-shrink-0 flex items-center">
                 <Link href="/" className="text-black font-bold text-lg">
@@ -31,38 +28,42 @@ function Header({}: Props) {
                 </Link>
               </div>
             </Reveal>
-            <div className="flex items-center font-semibold space-x-8">
-              <Reveal>
-                <Link href="/" className={linkClasses("/")}>
-                  Accueil
-                </Link>
-              </Reveal>
-              <Reveal>
-                <Link href="/vision" className={linkClasses("/vision")}>
-                  Notre vision
-                </Link>
-              </Reveal>
-              <Reveal>
-                <Link href="/products" className={linkClasses("/products")}>
-                  Nos produits
-                </Link>
-              </Reveal>
-              <Reveal>
-                <Link href="/contact" className={linkClasses("/contact")}>
-                  Contact
-                </Link>
-              </Reveal>
-              <Reveal>
-                <Link href="/community" className={linkClasses("/community")}>
-                  <Button className="bg-secondary text-white">
-                    Notre communauté
-                  </Button>
-                </Link>
-              </Reveal>
+            <div className="justify-center items-center block space-y-7">
+              <p className="text-primary text-center font-bold">
+                Votre engagement pour un avenir durable se construit ici !
+              </p>
+              <div className="flex items-center font-semibold">
+                <Reveal>
+                  <Link href="/" className={linkClasses("/")}>
+                    Accueil
+                  </Link>
+                </Reveal>
+                <Reveal>
+                  <Link href="/vision" className={linkClasses("/vision")}>
+                    Notre vision
+                  </Link>
+                </Reveal>
+                <Reveal>
+                  <Link href="/products" className={linkClasses("/products")}>
+                    Nos produits
+                  </Link>
+                </Reveal>
+                <Reveal>
+                  <Link href="/contact" className={linkClasses("/contact")}>
+                    Contact
+                  </Link>
+                </Reveal>
+              </div>
             </div>
+            <Reveal>
+              <Link href="/community">
+                <Button className="bg-secondary text-white">
+                  Notre communauté
+                </Button>
+              </Link>
+            </Reveal>
           </div>
         </nav>
-        {/* </Reveal> */}
       </header>
     </div>
   );
