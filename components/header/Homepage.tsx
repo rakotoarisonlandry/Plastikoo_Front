@@ -15,13 +15,11 @@ function Homepage({}: Props) {
       <Slideshow />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 pt-28 rounded-xl">
         <h1 className="text-[40px] w-[70%] font-bold">
-          <Reveal>
-            Votre engagement pour un avenir durable se construit ici !
-          </Reveal>
+          <Reveal>Ensemble,</Reveal>
         </h1>
         <Reveal>
           <p className="mt-2 text-[20px]">
-            Ensemble,Offrons une deuxième vie aux plastiques,
+            Offrons une deuxième vie aux plastiques,
           </p>
           <p className="text-[20px]">
             Bâtissons un avenir durable pour Madagascar.
