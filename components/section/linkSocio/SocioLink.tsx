@@ -1,15 +1,15 @@
 import React from "react";
 import { FaFacebookF, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
-import { RevealLeft } from "../utils/RevealLeft";
+import { RevealLeft } from "../../utils/RevealLeft";
 import Link from "next/link";
 
 type Props = {};
 
 const SocioLink = (props: Props) => {
   return (
-    <div className="fixed right-20 top-1/2 transform -translate-y-1/2 z-40">
-      <div className="flex flex-col items-center space-y-4 bg-primary p-2 rounded-lg">
+    <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40">
+      <div className="flex flex-col items-center space-y-3 bg-primary p-2 rounded-lg">
         <RevealLeft>
           <Link
             href="https://www.facebook.com"

@@ -1,7 +1,7 @@
 // import Image from "next/image";
 import React from "react";
 import { Image } from "antd";
-import { Reveal } from "../utils/Reveal";
+import { Reveal } from "../../utils/Reveal";
 type TeamMember = {
   name: string;
   role: string;

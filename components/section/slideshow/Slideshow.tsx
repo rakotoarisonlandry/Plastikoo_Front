@@ -46,7 +46,6 @@ const Slideshow = () => {
       </button>
     ),
   };
-
   return (
     <div className="slide-container relative">
       <Slide {...properties}>

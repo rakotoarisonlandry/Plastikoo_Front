@@ -2,9 +2,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { usePathname } from "next/navigation";
-import { Reveal } from "../utils/Reveal";
+import { Reveal } from "../../utils/Reveal";
 
 type Props = {};
 

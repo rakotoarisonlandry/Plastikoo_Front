@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { Reveal } from "../utils/Reveal";
+import { Reveal } from "../../utils/Reveal";
 
 type Props = {};
 
