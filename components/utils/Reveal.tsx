@@ -1,3 +1,4 @@
+'use client'; // This line tells Next.js to treat this as a client component
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React, { useEffect } from "react";

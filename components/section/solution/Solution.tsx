@@ -1,54 +1,68 @@
 import React from "react";
-import { FaGlobe, FaHome, FaTree, FaLightbulb } from "react-icons/fa";
-import { BiWorld } from "react-icons/bi";
+import { Reveal } from "../../utils/Reveal";
+import { RevealLeft } from "../../utils/RevealLeft";
+import { FaLightbulb, FaHandsHelping, FaTree, FaRecycle, FaCogs, FaAccessibleIcon } from "react-icons/fa";
+
 type Props = {};
 
-const solutions = [
+const valeurs = [
   {
-    title: "Transformons l’avenir  ",
-    description: "",
-    icon: <BiWorld />,
+    title: "Innovation continue",
+    icon: <FaLightbulb />,
   },
   {
-    title: "Construisons ensemble",
-    description: "",
-    icon: <FaHome />,
+    title: "Engagement communautaire",
+    icon: <FaHandsHelping />,
   },
   {
-    title: "Inspirons le changement",
-    description: "",
+    title: "Responsabilité environnementale",
     icon: <FaTree />,
   },
   {
-    title: "Innovons avec passion",
-    description: "",
-    icon: <FaLightbulb />,
+    title: "Economie circulaire",
+    icon: <FaRecycle />,
+  },
+  {
+    title: "Qualité et Durabilité",
+    icon: <FaCogs />,
+  },
+  {
+    title: "Accessibilité et praticité",
+    icon: <FaAccessibleIcon />,
   },
 ];
 
-const Solution: React.FC<Props> = () => {
+const Valeurs: React.FC<Props> = () => {
   return (
-    <div className="text-center py-10 bg-gradient-to-r from-blue-500 to-green-500 text-white">
-      <h2 className="text-[40px] font-bold mb-2">Nos valeurs</h2>
-      <p className="text-[15px] mb-8 px-10 md:px-20 lg:px-44">
-        Chez Plastikôo, nos valeurs sont au cœur de tout ce que nous faisons.
-        Elles reflètent notre engagement envers environnement et la
-        communauté, orientant chaque étape de notre mission pour un futur plus
-        durable.
-      </p>
-      <div className="flex justify-center flex-wrap">
-        {solutions.map((solution, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-xl p-6 m-4 w-64 hover:translate-y-[-10px] transition duration-300 text-center text-black"
-          >
-            <div className="text-4xl text-black mb-4">{solution.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{solution.title}</h3>
-          </div>
+    <div className="text-center py-10 bg-white text-black">
+      {/* Titre principal */}
+      <Reveal>
+        <h2 className="text-4xl font-bold text-green-600 mb-4">Nos valeurs</h2>
+      </Reveal>
+
+      {/* Description */}
+      <Reveal>
+        <p className="text-lg mb-8 px-4 md:px-20 lg:px-44">
+          Chez Plastikôo, nos valeurs sont au cœur de tout ce que nous faisons.
+          Elles reflètent notre engagement envers l'environnement et la
+          communauté, orientant chaque étape de notre mission pour un futur plus
+          durable.
+        </p>
+      </Reveal>
+
+      {/* Grille des valeurs */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {valeurs.map((valeur, index) => (
+          <RevealLeft key={index}>
+            <div className="flex flex-col items-center">
+              <div className="text-green-600 text-6xl mb-4">{valeur.icon}</div>
+              <h3 className="text-xl font-bold text-black">{valeur.title}</h3>
+            </div>
+          </RevealLeft>
         ))}
       </div>
     </div>
   );
 };
 
-export default Solution;
+export default Valeurs;

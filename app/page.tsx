@@ -13,9 +13,8 @@ import Partner from "@/components/section/partner/Partner";
 
 export default function Home() {
   return (
-    // <Reveal>
+   
     <div className="min-h-screen flex flex-col">
-      {/* <main className="flex-grow"> */}
       <Homepage />
       <Task />
       <Mission />
@@ -26,8 +25,6 @@ export default function Home() {
       <Team />
       <Partner />
       <Contact />
-      {/* </main> */}
     </div>
-    // </Reveal>
   );
 }

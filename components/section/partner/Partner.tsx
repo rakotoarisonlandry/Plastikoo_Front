@@ -25,7 +25,7 @@ const ListImage = [
 const Partner = ({}: Props) => {
   return (
     <div className="p-8 mb-32">
-      <div className="bg-primary h-2 w-[10%] mb-20 justify-center ml-[45%] items-center"></div>
+      <div className="bg-primary h-2 w-[10%] mb-20 mx-auto"></div>
       <h2 className="text-center text-3xl font-bold text-secondary mb-14">
         Nos Partenaires
       </h2>
@@ -39,7 +39,7 @@ const Partner = ({}: Props) => {
         {ListImage.map((item, index) => (
           <div
             key={index}
-            className="flex items-center  overflow-hidden justify-center mx-6"
+            className="flex items-center justify-center mx-6"
             style={{ width: "200px" }}
           >
             <Image
@@ -47,7 +47,7 @@ const Partner = ({}: Props) => {
               alt={`Partner ${index + 1}`}
               width="170"
               height="170"
-              className="h-full object-contain hover:scale-x-105 overflow-hidden scale-y-105 transition duration-300"
+              className="h-full object-contain hover:scale-105 transition-transform duration-300"
             />
           </div>
         ))}
