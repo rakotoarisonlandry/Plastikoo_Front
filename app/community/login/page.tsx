@@ -8,29 +8,55 @@ import { RevealLeft } from "@/components/utils/RevealLeft";
 const Login: React.FC = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [fieldError, setFieldError] = useState(""); // Erreur pour les champs vides
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { email, password } = formData;
 
     if (!email || !password) {
-      setError("Tous les champs sont obligatoires.");
+      setFieldError("Tous les champs sont obligatoires.");
       return;
     }
 
-    const storedEmail = localStorage.getItem("userEmail");
-    const storedPassword = localStorage.getItem("userPassword");
+    setFieldError(""); // Réinitialiser les erreurs de champs vides
 
-    if (email === storedEmail && password === storedPassword) {
-      localStorage.setItem("isAuthenticated", "true");
-      router.push("/community");
-    } else {
-      setError("Identifiant ou mot de passe incorrect.");
+    try {
+      const response = await fetch('http://localhost:5000/utilisateur/connecter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: email,
+          password: password,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.token) {
+          localStorage.setItem("isAuthenticated", "true");
+          localStorage.setItem("authToken", data.token); // Enregistrez le token
+          router.push("/community");
+        } else {
+          setError("Identifiant ou mot de passe incorrect.");
+        }
+      } else {
+        const errorData = await response.json();
+        if (errorData.message.includes("email")) {
+          setError("Email incorrect.");
+        } else if (errorData.message.includes("password")) {
+          setError("Mot de passe incorrect.");
+        }
+      }
+    } catch (error) {
+      setError("Mot de passe incorrect.");
     }
   };
 
@@ -48,7 +74,9 @@ const Login: React.FC = () => {
 
           <div className="flex flex-col justify-center items-center w-full max-w-md mx-auto mt-16">
             <h2 className="text-2xl font-bold text-green-500 mb-6 text-center">Se connecter</h2>
-            {error && <RevealLeft><p className="text-red-500 mb-4 text-center">{error}</p></RevealLeft>}
+            
+            {fieldError && <RevealLeft><p className="text-red-500 mb-4 text-center">{fieldError}</p></RevealLeft>}
+            
             <form onSubmit={handleSubmit} className="space-y-4 w-full">
               <div className="space-y-3">
                 <label htmlFor="email" className="block text-gray-700 font-bold">Email</label>
@@ -60,6 +88,7 @@ const Login: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200"
+                  autoComplete="email"
                 />
               </div>
               <div className="space-y-3">
@@ -72,6 +101,7 @@ const Login: React.FC = () => {
                   value={formData.password}
                   onChange={handleChange}
                   className="p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200"
+                  autoComplete="current-password"
                 />
                 <p className="text-blue-500 text-sm text-right cursor-pointer hover:underline transition duration-200">
                   Mot de passe oublié ?
@@ -83,8 +113,16 @@ const Login: React.FC = () => {
               >
                 Se connecter
               </button>
+
+              {/* Affichage des erreurs en bas du formulaire */}
+              {error && (
+                <RevealLeft>
+                  <p className="text-red-500 mt-4 text-center">{error}</p>
+                </RevealLeft>
+              )}
+
               <p className="text-center text-gray-700 mt-4">
-                Vous avez déjà un compte ?{" "}
+                Vous n'avez pas de compte ?{" "}
                 <a
                   onClick={handleSignUp}
                   className="text-blue-500 cursor-pointer hover:underline"
