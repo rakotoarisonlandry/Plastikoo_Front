@@ -12,47 +12,107 @@ const SignUp: React.FC = () => {
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [ageError, setAgeError] = useState<string | null>(null); // Erreur pour l'âge
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const { name, prenom, email, password } = formData;
+  const calculateAge = (dateOfBirth: string) => {
+    const today = new Date();
+    const birthDate = new Date(dateOfBirth);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
 
-    if (!name || !prenom || !email || !password) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { name, prenom, dateDeNaissance, email, password } = formData;
+
+    if (!name || !prenom || !dateDeNaissance || !email || !password) {
       setError("Tous les champs sont obligatoires.");
+      setSuccessMessage(null);
+      setAgeError(null);
       return;
     }
 
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
-    localStorage.setItem("isAuthenticated", "false");
+    const age = calculateAge(dateDeNaissance);
+    if (age < 18) {
+      setAgeError("Vous devez avoir au moins 18 ans.");
+      setError(null);
+      setSuccessMessage(null);
+      return;
+    }
 
-    router.push("/community/login");
+    setAgeError(null); // Réinitialiser les erreurs d'âge
+
+    try {
+      console.log("Données envoyées à l'API :", {
+        email,
+        mdp: password,
+        nom: name,
+        prenom,
+        date_naissance: dateDeNaissance,
+      });
+
+      const response = await fetch('http://localhost:5000/utilisateur/inscription', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          mdp: password,
+          nom: name,
+          prenom,
+          date_naissance: dateDeNaissance,
+        }),
+      });
+
+      console.log('Réponse brute de l\'API :', response);
+
+      const result = await response.json();
+      console.log('Réponse JSON de l\'API :', result);
+
+      if (response.ok) {
+        setSuccessMessage("Inscription réussie ! Vous pouvez maintenant vous connecter.");
+        setError(null);
+        router.push("/community/login");
+      } else {
+        setError(result.message || "Une erreur est survenue lors de l'inscription.");
+        setSuccessMessage(null);
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'inscription : ", error); 
+      setError(null); // Ne pas afficher un message d'erreur générique
+      setSuccessMessage(null);
+    }
   };
 
   return (
     <LayoutLoginSignUp>
       <div className="flex h-screen">
-
         <div className="flex-1 bg-cover bg-center bg-no-repeat p-8 flex flex-col justify-center items-center text-center" style={{ backgroundImage: "url('/slide1.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}>
           <h1 className="text-white text-4xl font-bold mb-4">Bienvenue chez Plastikoo</h1>
           <p className="text-white mb-8">
             Ensemble, offrons une deuxième vie aux plastiques. Bâtissons un avenir durable brique après brique.
           </p>
-
         </div>
 
         <div className="w-1/2 bg-white flex justify-center items-center">
-          <div className="w-4/5 max-w-md p-8 rounded-lg ">
+          <div className="w-4/5 max-w-md p-8 rounded-lg">
             <RevealLeft>
               <h2 className="text-2xl font-bold text-green-500 mb-4 text-center">Créer un nouveau compte</h2>
             </RevealLeft>
             {error && <RevealLeft><p className="text-red-500 mb-4 text-center">{error}</p></RevealLeft>}
+            {successMessage && <RevealLeft><p className="text-green-500 mb-4 text-center">{successMessage}</p></RevealLeft>}
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
@@ -70,13 +130,16 @@ const SignUp: React.FC = () => {
                 onChange={handleChange}
                 className="mt-4 p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200"
               />
-              <input
-                type="date"
-                name="dateDeNaissance"
-                value={formData.dateDeNaissance}
-                onChange={handleChange}
-                className="mt-4 p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200"
-              />
+              <div className="relative">
+                <input
+                  type="date"
+                  name="dateDeNaissance"
+                  value={formData.dateDeNaissance}
+                  onChange={handleChange}
+                  className="mt-4 p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200"
+                />
+                {ageError && <p className="text-red-500 mt-1 text-center">{ageError}</p>}
+              </div>
               <input
                 type="email"
                 name="email"

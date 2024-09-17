@@ -49,7 +49,7 @@ const HeaderCommunity: React.FC<Props> = () => {
             </Reveal>
             <div className="flex-grow flex justify-center items-center">
               <Reveal>
-                <p className="text-lg text-primary font-bold">
+              <p className="text-primary text-center font-bold">
                   Votre engagement pour un avenir durable se construit ici !
                 </p>
               </Reveal>

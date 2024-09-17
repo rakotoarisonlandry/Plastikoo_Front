@@ -1,0 +1,206 @@
+hugo@gmail.com
+123Hugo
+
+
+Marie@gmail.com
+Marie123
+
+
+
+
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import { FaHeart, FaComment, FaLink, FaSearch, FaEllipsisV, FaPaperPlane } from "react-icons/fa";
+
+function Discussion() {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [file, setFile] = useState(null);
+  const [formVisible, setFormVisible] = useState(false);
+
+  // Fonction pour récupérer le token depuis localStorage
+  const getToken = () => {
+    return localStorage.getItem('authToken'); // Assurez-vous que le token est stocké sous cette clé
+  };
+
+  const handleFileChange = (e) => {
+    if (e.target.files.length > 0) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!title || !content) {
+      alert("Veuillez remplir tous les champs.");
+      return;
+    }
+
+    const formData = new FormData();
+    if (file) {
+      formData.append("forum", file);
+    }
+    formData.append("titre", title);
+    formData.append("contenu", content);
+
+    const token = getToken(); // Récupère le token
+
+    try {
+      // Log des données sans afficher le nom du fichier
+      console.log("Envoi des données:", {
+        titre: title,
+        contenu: content
+      });
+
+      const response = await fetch("http://localhost:5000/forum/publication", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Authorization': `Bearer ${token}`, // Utilise le token récupéré
+        },
+      });
+
+      if (response.ok) {
+        alert("Post publié avec succès !");
+        setTitle('');
+        setContent('');
+        setFile(null);
+        setFormVisible(false);
+      } else {
+        const error = await response.json();
+        alert(`Erreur lors de la publication : ${error.message || "Erreur inconnue"}`);
+      }
+    } catch (error) {
+      console.error("Erreur lors de la requête:", error);
+      alert("Erreur de connexion au serveur.");
+    }
+  };
+
+  return (
+    <div className="bg-white text-black min-h-screen flex flex-col">
+      <div className="p-4 flex justify-center">
+        <div className="flex items-center border border-gray-300 rounded-lg w-full max-w-4xl">
+          <input
+            type="text"
+            placeholder="Rechercher..."
+            className="p-4 w-full border-none outline-none rounded-l-lg text-lg"
+          />
+          <button className="bg-green-500 text-white p-4 rounded-r-lg text-lg">
+            <FaSearch />
+          </button>
+        </div>
+      </div>
+
+      <div className="flex-grow p-4 flex flex-col items-center">
+        <div className="w-full max-w-5xl bg-white border border-gray-300 rounded-lg p-6 mb-8 shadow-md">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-6">
+              <Image src="/profil.png" alt="Avatar de l'utilisateur" width={80} height={80} className="rounded-full" />
+              <div>
+                <h3 className="text-xl font-bold">Andry007</h3>
+                <p className="text-base text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+              </div>
+            </div>
+            <button className="text-gray-600 text-xl">
+              <FaEllipsisV />
+            </button>
+          </div>
+          <div className="mt-6">
+            <Image src="/pub.png" alt="Image de publication" width={900} height={450} className="rounded-lg" priority />
+          </div>
+          <div className="flex items-center mt-4 space-x-6">
+            <button className="text-green-500 flex items-center text-lg"><FaHeart className="mr-2" /> 98</button>
+            <button className="text-gray-600 flex items-center text-lg"><FaComment className="mr-2" /> 223</button>
+            <button className="text-gray-600 flex items-center text-lg"><FaLink className="mr-2" /></button>
+          </div>
+
+          <div className="mt-6 bg-gray-100 p-6 rounded-lg">
+            <div className="flex items-center space-x-4 mb-6">
+              <input
+                type="text"
+                placeholder="Votre commentaire"
+                className="w-full p-4 border border-gray-300 rounded-lg text-lg"
+              />
+              <button className="ml-2 text-green-500 text-xl">
+                <FaPaperPlane />
+              </button>
+            </div>
+
+            <div className="flex items-start space-x-6 mb-6">
+              <Image src="/profil.png" alt="Avatar de l'utilisateur" width={60} height={60} className="rounded-full" />
+              <div>
+                <h3 className="text-base font-bold">Mahery1920</h3>
+                <p className="text-base text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+
+                <div className="flex items-start space-x-6 mt-4 ml-8">
+                  <Image src="/profil.png" alt="Avatar de l'utilisateur" width={50} height={50} className="rounded-full" />
+                  <div>
+                    <h3 className="text-base font-bold">Yvon14843</h3>
+                    <p className="text-base text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-6">
+              <Image src="/profil.png" alt="Avatar de l'utilisateur" width={60} height={60} className="rounded-full" />
+              <div>
+                <h3 className="text-base font-bold">Andry007</h3>
+                <p className="text-base text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full flex justify-center mb-8">
+          <button
+            onClick={() => setFormVisible(!formVisible)}
+            className="bg-green-500 text-white px-8 py-4 rounded-lg shadow-md text-xl"
+          >
+            Publier un Post
+          </button>
+        </div>
+
+        {formVisible && (
+          <div className="w-full flex justify-center mb-8">
+            <div className="bg-gray-200 border border-gray-300 rounded-lg p-6 shadow-md w-full max-w-5xl">
+              <form onSubmit={handleSubmit} className="flex flex-col">
+                <input
+                  type="text"
+                  placeholder="Titre de votre publication"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  className="w-full p-4 border border-gray-300 rounded-lg mb-4 text-lg"
+                  required
+                />
+                <textarea
+                  placeholder="Contenu de votre publication"
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                  className="w-full p-4 border border-gray-300 rounded-lg mb-4 text-lg"
+                  required
+                />
+                <input
+                  type="file"
+                  onChange={handleFileChange}
+                  className="mb-4"
+                />
+                <button
+                  type="submit"
+                  className="bg-green-500 text-white px-8 py-4 rounded-lg shadow-md text-xl"
+                >
+                  Publier
+                </button>
+              </form>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default Discussion;
