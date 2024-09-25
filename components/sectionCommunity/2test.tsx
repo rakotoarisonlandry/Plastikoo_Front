@@ -384,10 +384,10 @@ const Discussion: React.FC = () => {
     }
   };
   return (
-   <div className="w-full max-w-7xl mx-auto p-10"> {/* Conteneur principal avec une largeur maximale plus grande */}
-  
-  {/* Conteneur principal des publications */}
-  <div className="w-full max-w-5xl mx-auto"> {/* Agrandi et garde le bloc centré */}
+    <div className="w-full max-w-5xl mx-auto p-10"> {/* Agrandi la largeur du conteneur principal */}
+      
+      {/* Conteneur principal des publications */}
+      <div className="w-full max-w-3xl"> {/* Gardé la largeur max pour agrandir légèrement le bloc */}
         
         {formVisible && (
           <form onSubmit={handleSubmit} className="mb-4 bg-gray-100 p-4 rounded-lg shadow-lg">
@@ -574,7 +574,7 @@ const Discussion: React.FC = () => {
       </div>
   
       {/* Bouton "Ajouter une publication" toujours en bas */}
-      <div className=" left-0 right-0 p-4 bg-white  flex justify-center z-50">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white shadow-lg flex justify-center">
         <button
           onClick={() => setFormVisible(true)}
           className="bg-green-500 text-white p-2 rounded-lg mb-4 hover:bg-green-600"

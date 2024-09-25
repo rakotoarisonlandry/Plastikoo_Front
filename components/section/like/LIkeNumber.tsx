@@ -14,24 +14,24 @@ type CardType = {
 
 const card: CardType[] = [
   {
-    number: 600,
-    suffix: "M",
+    number: 3000000,
+    suffix: "T",
     description:
-      "De tonnes Déchets ménagers produits chaque année à Madagascar ",
+      "Déchets ménagers produits chaque année à Madagascar ",
   },
   {
-    number: 300,
-    suffix: "M",
+    number: 68985,
+    suffix: "T",
     description: "Quantité annuelle de déchets plastiques produits. ",
   },
   {
-    number: 30,
+    number: 10,
     suffix: "%",
     description: "Pourcentage de déchets plastiques recyclables",
   },
   {
-    number: 9000,
-    suffix: "+",
+    number: 1000,
+    suffix: "",
     description: "Nombre de déchets collecté par Plastikôo",
   },
 ];

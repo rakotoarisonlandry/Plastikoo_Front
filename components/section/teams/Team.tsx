@@ -16,12 +16,15 @@ const team: TeamMember[] = [
     image: "/TSITOO.png", 
     bgColor: "bg-green-500",
   },
+
+
   {
-    name: "Randrianarinaivo I. Asandratra",
-    role: "RECHERCHE - DÉVELOPPEMENT",
-    image: "/ASAH.png", 
-    bgColor: "bg-blue-500",
+    name: "Razafindraibe Vanessa",
+    role: "DESIGN UI & UX",
+    image: "/VANESSA.png", 
+    bgColor: "bg-orange-500",
   },
+
   {
     name: "NIRINAHARIMANANA Sarobidy",
     role: "MANAGEMENT - COMMUNICATION",
@@ -34,18 +37,21 @@ const team: TeamMember[] = [
     image: "/SARRON.png", 
     bgColor: "bg-red-500",
   },
+
+  {
+    name: "Randrianarinaivo I. Asandratra",
+    role: "RECHERCHE - DÉVELOPPEMENT",
+    image: "/ASAH.png", 
+    bgColor: "bg-blue-500",
+  },
+  
   {
     name: "Randrianarisoa Yvon",
     role: "GÉNIE MÉCANIQUE",
     image: "/YVON.png", 
     bgColor: "bg-blue-500",
   },
-  {
-    name: "Razafindraibe Vanessa",
-    role: "DESIGN UI & UX",
-    image: "/VANESSA.png", 
-    bgColor: "bg-orange-500",
-  },
+  
   {
     name: "RANDRIANARISON Johns",
     role: "DÉVELOPPEUR",

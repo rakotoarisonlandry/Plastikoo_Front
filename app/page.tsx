@@ -1,10 +1,11 @@
 "use client";
 
 import Binding from "@/components/section/binding/Binding";
-import Product from "@/components/section/find/Product";
+import AutreProduit from "@/components/section/find/AutreProduit";
 import Homepage from "@/components/section/header/Homepage";
 import LIkeNumber from "@/components/section/like/LIkeNumber";
 import Mission from "@/components/section/mission/Mission";
+import Solutions from "@/components/section/Solutions/Solutions";
 import Solution from "@/components/section/solution/Solution";
 import Task from "@/components/section/task/Task";
 import Team from "@/components/section/teams/Team";
@@ -19,9 +20,10 @@ export default function Home() {
       <Task />
       <Mission />
       <Binding />
+      <Solutions />
       <Solution />
       <LIkeNumber />
-      <Product />
+      <AutreProduit />
       <Team />
       <Partner />
       <Contact />

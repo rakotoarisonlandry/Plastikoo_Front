@@ -15,7 +15,7 @@ const Contact = (props: Props) => {
         />
         <div className="absolute inset-0 bg-black bg-opacity-50  flex flex-col items-start justify-center text-white p-14">
           <h1 className="text-4xl font-semibold  mb-4">
-            Ensemble, construisons un avenir durable
+            Ensemble, nous pourrons bâtir un avenir propre et durable.
           </h1>
           <p className="text-lg mb-4 space-y-0 text-[13px]">
             Votre contribution fait la différence. Rejoignez notre communauté et
