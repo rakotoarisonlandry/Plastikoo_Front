@@ -27,7 +27,7 @@ const team: TeamMember[] = [
 
   {
     name: "NIRINAHARIMANANA Sarobidy",
-    role: "MANAGEMENT - COMMUNICATION",
+    role: "RESPONSABLE FINANCIER",
     image: "/SAROBIDY.png", 
     bgColor: "bg-orange-500",
   },
@@ -40,7 +40,7 @@ const team: TeamMember[] = [
 
   {
     name: "Randrianarinaivo I. Asandratra",
-    role: "RECHERCHE - DÉVELOPPEMENT",
+    role: "RECHERCHE & DÉVELOPPEMENT",
     image: "/ASAH.png", 
     bgColor: "bg-blue-500",
   },
@@ -76,9 +76,7 @@ const Team = () => {
       </Reveal>
       <Reveal>
         <p className="text-dark mt-5 mb-10 text-[15px] pr-96 pl-96 font-semibold text-center">
-          Découvrez les visages qui portent notre projet. Chaque membre de notre
-          équipe contribue avec passion à faire avancer Plastikôo et à réaliser
-          notre vision commune.
+        Découvrez les talents et compétences de notre équipe, engagée et prête à bâtir un avenir propre et durable pour Madagascar.
         </p>
       </Reveal>
 

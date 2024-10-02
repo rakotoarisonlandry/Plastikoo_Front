@@ -43,40 +43,43 @@ const Task = () => (
       </Reveal>
       <Reveal>
         <p className="mt-4 pr-56 pt-4 pb-6 text-center pl-56 text-dark font-semibold">
-          Plastikôo transforme les déchets plastiques en solutions durables.
-          Nous collectons et recyclons les plastiques pour concevoir et
-          fabriquer des matériaux de construction innovants et écologiques,
-          contribuant ainsi à réduire la pollution plastique de la ville
-          d’Antananarivo.
+        Plastikôo collecte les déchets plastiques à l'aide de machines automatisées,
+        transformant ces matériaux en solutions innovantes pour construire des infrastructures écologiques et durables.
         </p>
       </Reveal>
     </div>
 
-    <div className="flex justify-center items-center space-x-6 space-y-4 mb-10">
-      <Step
-        imageSrc="/dechet.png"
-        imageAlt="dechetIllustration"
-        description="Les dechets plastiques"
-      />
-      <Arrow />
-      <Step
-        imageSrc="/Machine.png"
-        imageAlt="Recyclage"
-        description="sont recoltés à partir de notre machine"
-      />
-      <Arrow />
-      <Step
-        imageSrc="/brique.png"
-        imageAlt="Recyclage"
-        description="Puis recyclés et transformés en briques"
-      />
-      <Arrow />
-      <Step
-        imageSrc="/house.png"
-        imageAlt="Recyclage"
-        description="Pour construire un mur, une maison et plus encore"
-      />
-    </div>
+    <div className="flex justify-center items-center space-x-6 mb-10">
+  <Step
+    imageSrc="/dechet.png"
+    imageAlt="dechetIllustration"
+    description="Les dechets plastiques"
+    className="flex flex-col items-center" // Ajoute Flexbox
+  />
+  <Arrow />
+  <Step
+  imageSrc="/Machine.png"
+  imageAlt="Recyclage"
+  description="sont recoltés à partir de notre machine"
+  className="flex flex-col items-center -mt-9" // Ajoute une marge négative
+/>
+<Arrow />
+
+  <Step
+    imageSrc="/brique.png"
+    imageAlt="Recyclage"
+    description="Puis recyclés et transformés en briques"
+    className="flex flex-col items-center" // Ajoute Flexbox
+  />
+  <Arrow />
+  <Step
+    imageSrc="/house.png"
+    imageAlt="Recyclage"
+    description="Pour construire des infrastructures"
+    className="flex flex-col items-center" // Ajoute Flexbox
+  />
+</div>
+
 
     <div className="grid grid-cols-1 w-[80%] ml-[10%] mt-auto md:grid-cols-3 gap-5">
       {process.map((item, index) => (
@@ -90,20 +93,30 @@ const Step = ({
   imageSrc,
   imageAlt,
   description,
+  className,
 }: {
   imageSrc: string;
   imageAlt: string;
   description: string;
+  className?: string;
 }) => (
-  <div>
+  <div className={`flex flex-col items-center ${className}`}>
     <Reveal>
-      <Image src={imageSrc} width="150" height="150" alt={imageAlt} />
+      <Image
+        src={imageSrc}
+        width="150" // Réduire la taille de l'image (ajuste selon tes besoins)
+        height="100"
+        alt={imageAlt}
+        className="mb-2" // Optionnel : Ajoute une marge en bas de l'image
+      />
     </Reveal>
-    <p className="text-[20px] text-center text-black font-semibold">
+    <p className="text-[16px] text-center text-black font-semibold mt-1">
       {description}
     </p>
   </div>
 );
+
+
 
 const Arrow = () => (
   <Reveal>

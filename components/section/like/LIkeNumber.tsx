@@ -15,37 +15,31 @@ type CardType = {
 const card: CardType[] = [
   {
     number: 3000000,
-    suffix: "T",
-    description:
-      "Déchets ménagers produits chaque année à Madagascar ",
+    suffix: " tonnes",
+    description: "Déchets ménagers produits chaque année à Madagascar",
   },
   {
     number: 68985,
-    suffix: "T",
-    description: "Quantité annuelle de déchets plastiques produits. ",
+    suffix: " tonnes",
+    description: "Quantité annuelle de déchets plastiques produits.",
   },
   {
     number: 10,
-    suffix: "%",
-    description: "Pourcentage de déchets plastiques recyclables",
+    suffix: " %",
+    description: "Pourcentage de déchets plastiques recyclables.",
   },
   {
-    number: 1000,
-    suffix: "",
-    description: "Nombre de déchets collecté par Plastikôo",
+    number: 450,
+    suffix: " à 1000 ans",
+    description: "Durée de dégradation des déchets plastiques.",
   },
 ];
 
 const LIkeNumber = (props: Props) => {
-  const [inViewStates, setInViewStates] = useState<boolean[]>(
-    new Array(card.length).fill(false)
-  );
+  const [inViewStates, setInViewStates] = useState<boolean[]>(new Array(card.length).fill(false));
 
-  // Utiliser useCallback pour éviter que la fonction ne soit recréée à chaque rendu
   const handleInViewChange = useCallback((inView: boolean, index: number) => {
-    setInViewStates((prev) =>
-      prev.map((state, i) => (i === index ? inView : state))
-    );
+    setInViewStates((prev) => prev.map((state, i) => (i === index ? inView : state)));
   }, []);
 
   return (
@@ -58,23 +52,22 @@ const LIkeNumber = (props: Props) => {
         className="mt-[-60px] absolute left-8 z-10"
       />
       {card.map((cardlist, key) => (
-        <InViewMonitor
-          key={key}
-          index={key}
-          onInViewChange={handleInViewChange}
-        >
+        <InViewMonitor key={key} index={key} onInViewChange={handleInViewChange}>
           {inViewStates[key] && (
             <Reveal>
-              <div className="bg-primary hover:translate-y-3 transition duration-300 w-48 h-44 flex flex-col items-center justify-center z-30 text-white pt-5 pb-5 pr-5 pl-5 rounded-xl">
-                <h1 className="font-extrabold text-3xl pb-2">
-                  <CountUp
-                    start={0}
-                    end={cardlist.number}
-                    duration={4}
-                    suffix={cardlist.suffix}
-                  />
-                </h1>
-                <p className="font-semibold text-center">
+              <div className="bg-primary hover:translate-y-3 transition duration-300 w-52 h-52 flex flex-col items-center justify-center z-30 text-white pt-5 pb-5 rounded-xl">
+                {cardlist.number === 3000000 ? (
+                  <h1 className="font-extrabold text-xl text-center pb-1"> {/* Taille ajustée pour 3,000,000 */}
+                    <CountUp start={0} end={cardlist.number} duration={4} separator="" />
+                    {cardlist.suffix}
+                  </h1>
+                ) : (
+                  <h1 className="font-extrabold text-2xl text-center pb-1"> {/* Taille normale pour les autres */}
+                    <CountUp start={0} end={cardlist.number} duration={4} separator="" />
+                    {cardlist.suffix}
+                  </h1>
+                )}
+                <p className="font-semibold text-center mt-2 text-xs"> {/* Taille du texte réduite */}
                   {cardlist.description}
                 </p>
               </div>
@@ -92,11 +85,7 @@ type InViewMonitorProps = {
   children: React.ReactNode;
 };
 
-const InViewMonitor: React.FC<InViewMonitorProps> = ({
-  index,
-  onInViewChange,
-  children,
-}) => {
+const InViewMonitor: React.FC<InViewMonitorProps> = ({ index, onInViewChange, children }) => {
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: false,

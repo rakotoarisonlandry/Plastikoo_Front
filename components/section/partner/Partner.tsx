@@ -5,21 +5,32 @@ import Marquee from "react-fast-marquee";
 type Props = {};
 
 const ListImage = [
-  {
-    imgUrl: "/amazon.png",
-  },
+
   {
     imgUrl: "/ODC.png",
   },
-  {
-    imgUrl: "/ey.png",
-  },
-  {
-    imgUrl: "/orangeMoney.png",
-  },
+
+
   {
     imgUrl: "/Nokia.png",
   },
+
+  {
+    imgUrl: "/amazon.png",
+  },
+
+  {
+    imgUrl: "/ey.png",
+  },
+
+  {
+    imgUrl: "/Andao.jpeg",
+  },
+
+  {
+    imgUrl: "/Ravinala.jpeg",
+  },
+  
 ];
 
 const Partner = ({}: Props) => {

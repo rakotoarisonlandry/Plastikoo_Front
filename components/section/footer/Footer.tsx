@@ -15,7 +15,7 @@ const listContact = [
   },
   {
     icon: <FaPhoneAlt />,
-    Descriptions: "+216 32 44 401 81 ",
+    Descriptions: "+261 32 44 401 81 ",
   },
   {
     icon: <MdGpsFixed />,
@@ -60,7 +60,7 @@ const Footer = (props: Props) => {
             ))}
           </div>
           <div className="text-white text-[15px] font-semibold">
-            Visitez nos réseau sociaux
+           
           </div>
           <SocioLink />
         </div>

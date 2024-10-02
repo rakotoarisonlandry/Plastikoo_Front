@@ -1,6 +1,6 @@
 import { FaRecycle } from "react-icons/fa";
-import { GiWaterRecycling } from "react-icons/gi";
-import { TbTransformFilled } from "react-icons/tb";
+import { FaTrash } from "react-icons/fa"; // Ajout de FaTrash pour l'icône poubelle
+import { MdHouse } from "react-icons/md"; // Importation de l'icône pour la construction
 import { FaArrowRightLong } from "react-icons/fa6";
 import { ReactNode } from "react";
 
@@ -16,10 +16,10 @@ export interface ProcessItem {
 export const process: ProcessItem[] = [
   {
     arrow: <FaArrowRightLong />,
-    icon: <GiWaterRecycling />,
-    titre: "Recolte",
+    icon: <FaTrash  />,
+    titre: "Collecte",
     description:
-      "Plastikôo met en place une collecte des déchets plastiques auprès des particuliers, des ménages, des associations ou des entreprises. Nous encourageons activement la communauté à participer à notre initiative en nous fournissant leurs déchets plastiques, contribuant ainsi à la préservation de notre environnement tout en soutenant l'économie locale.",
+    "Plastikôo collecte les déchets plastiques via des machines automatiques, installées dans des zones d’affluences. Les utilisateurs reçoivent des récompenses pour chaque bouteille déposée, encourageant ainsi le geste de recyclage et la protection de l’environnement.",
     bgColor: "bg-orange",
   },
   {
@@ -27,15 +27,15 @@ export const process: ProcessItem[] = [
     icon: <FaRecycle />,
     titre: "Recyclage",
     description:
-      "Après les matières recyclés, Plastikôo donne une seconde vie aux déchets plastiques en les convertissant en matériaux de construction écologiques, tels que des briques, des tables et des chaises etc. Cette initiative ne se contente pas de réduire la pollution plastique, mais elle offre également des solutions durables et abordables pour les projets de construction à Madagascar.",
+      "Plastikôo s’engage à transformer ces déchets plastiques en matériaux de construction utiles. Une fois collectés, ces déchets sont triés et nettoyés pour éliminer les impuretés. Ils sont ensuite fondus, moulés en briques et autres matériaux de construction écologiques, prêts à être utilisés dans divers projets.",
     bgColor: "bg-primary",
   },
   {
     arrow: <FaArrowRightLong />,
-    icon: <TbTransformFilled />,
-    titre: "Transformation",
-    bgColor: "bg-secondary",
+    icon: <MdHouse className="text-400xl" />, 
+    titre: "Construction",
     description:
-      "Une fois ces déchets plastiques collectés, ils sont soigneusement triés et nettoyés pour éliminer les impuretés. Ce processus de tri et de nettoyage est essentiel pour assurer la qualité des matériaux recyclés et passent ensuite par des procédés de recyclage avancés, transformant les déchets en matières premières prêtes à être réutilisées.",
+      "Les briques en plastique recyclé sont utilisées pour construire des infrastructures modernes, solides et éco-responsables, adaptées à des projets comme les Tiny Houses, Libraries et Classrooms.",
+    bgColor: "bg-secondary",
   },
 ];
