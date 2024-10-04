@@ -62,7 +62,7 @@ const SignUp: React.FC = () => {
         date_naissance: dateDeNaissance,
       });
 
-      const response = await fetch('http://localhost:5000/utilisateur/inscription', {
+      const response = await fetch(`${process.env.BACKEND_ADDRESS}/utilisateur/inscription`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ const SignUp: React.FC = () => {
                 type="submit"
                 className="bg-green-500 text-white mt-6 p-3 w-full rounded-lg hover:bg-green-600 transition duration-200"
               >
-                S'inscrire
+                S&apos;inscrire
               </button>
             </form>
             <p className="text-center text-gray-700 mt-4">

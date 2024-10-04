@@ -27,7 +27,8 @@ const Login: React.FC = () => {
     setFieldError(""); // Réinitialiser les erreurs de champs vides
 
     try {
-      const response = await fetch('http://localhost:5000/utilisateur/connecter', {
+
+      const response = await fetch(`${process.env.BACKEND_ADDRESS}/utilisateur/connecter`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,6 +46,8 @@ const Login: React.FC = () => {
           localStorage.setItem("authToken", data.token); // Enregistrez le token
           router.push("/community");
         } else {
+          const error = data.error
+          console.log(error)
           setError("Identifiant ou mot de passe incorrect.");
         }
       } else {
@@ -122,12 +125,12 @@ const Login: React.FC = () => {
               )}
 
               <p className="text-center text-gray-700 mt-4">
-                Vous n'avez pas de compte ?{" "}
+                Vous n&apos; avez pas de compte ?{" "}
                 <a
                   onClick={handleSignUp}
                   className="text-blue-500 cursor-pointer hover:underline"
                 >
-                  S'inscrire
+                  S&apos;inscrire
                 </a>
               </p>
             </form>
