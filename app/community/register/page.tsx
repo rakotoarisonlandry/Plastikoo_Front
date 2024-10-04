@@ -62,7 +62,7 @@ const SignUp: React.FC = () => {
         date_naissance: dateDeNaissance,
       });
 
-      const response = await fetch(`${process.env.BACKEND_ADDRESS}/utilisateur/inscription`, {
+      const response = await fetch('http://localhost:5000/utilisateur/inscription', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
