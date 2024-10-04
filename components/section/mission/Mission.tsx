@@ -10,15 +10,15 @@ function Mission({}: Props) {
       <Image
         src="/logoVert.png"
         alt="background"
-        width="350"
-        height="350"
+        width="300"
+        height="300"
         className="absolute mt-[-60px] left-[-120px] sm:mt-[-40px] sm:left-[-80px] md:mt-[-50px] md:left-[-100px]"
       />
       <Image
         src="/logobleu.png"
         alt="background"
-        width="350"
-        height="350"
+        width="300"
+        height="300"
         className="absolute mt-[-60px] right-[-120px] sm:mt-[-40px] sm:right-[-80px] md:mt-[-50px] md:right-[-100px]"
       />
       <Reveal>
@@ -28,10 +28,8 @@ function Mission({}: Props) {
       </Reveal>
       <Reveal>
         <p className="text-white mb-6 pr-56 pl-56 text-[16px] font-semibold sm:pr-10 sm:pl-10 md:pr-24 md:pl-24">
-          Notre mission est de réduire la pollution environnementale en
-          transformant les déchets plastiques en matériaux de construction de
-          haute qualité. Nous vous offrons des produits durables et abordables,
-          conçus pour bâtir un avenir plus propre et écologiques.
+        Notre mission est de réduire l'impact des déchets plastiques sur l'environnement en sensibilisant et éduquant la communauté, 
+        tout en collectant et transformant ces plastiques en matériaux de construction durables pour bâtir des infrastructures écologiques.
         </p>
       </Reveal>
       <Reveal>

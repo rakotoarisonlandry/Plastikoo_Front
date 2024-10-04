@@ -19,9 +19,7 @@ const Contact = (props: Props) => {
           </h1>
           <p className="text-lg mb-4 space-y-0 text-[13px]">
             Votre contribution fait la différence. Rejoignez notre communauté et
-            offrons un avenir meilleur pour les générations futures. Ensemble,
-            luttons contre la pollution plastique, transformons ce défi en
-            opportunité, et créons un impact positif et durable pour Madagascar.
+            offrons un avenir meilleur pour les générations futures.
           </p>
           <button className="bg-primary hover:scale-x-105 hover:scale-y-105 duration-300 transition text-white px-6 py-2 rounded-lg">
             Rejoignez-nous
@@ -37,7 +35,7 @@ const Contact = (props: Props) => {
             notre initiative ou devenir notre partenaire ou en savoir plus sur
             nos produits , votre message est important pour nous. Remplissez le
             formulaire ci-dessous avec vos coordonnées et votre demande.
-            Ensemble, faisons la différence.
+          
           </p>
         </div>
         <form className="w-full max-w-lg">

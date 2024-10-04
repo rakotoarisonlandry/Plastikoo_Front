@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FaHeart, FaComment, FaEllipsisV, FaPaperPlane, FaReply } from 'react-icons/fa';
+import { FaHeart, FaRegHeart, FaRegComment, FaEllipsisV, FaPaperPlane, FaReply, FaUpload, FaTimes } from 'react-icons/fa';
 
 interface Publication {
   publication_id: string;
@@ -21,6 +21,7 @@ interface Commentaire {
   commentaire_date_creation: string;
   commentaire_parent_id?: number;
   publication_id: number;
+  avatar_url?: string; 
   replies?: Commentaire[];
 }
 
@@ -384,52 +385,133 @@ const Discussion: React.FC = () => {
     }
   };
   return (
-   <div className="w-full max-w-7xl mx-auto p-10"> {/* Conteneur principal avec une largeur maximale plus grande */}
+    <div className="w-full max-w-7xl mx-auto p-10 relative">
+      <div className="w-full max-w-5xl mx-auto relative">
   
-  {/* Conteneur principal des publications */}
-  <div className="w-full max-w-5xl mx-auto"> {/* Agrandi et garde le bloc centré */}
-        
-        {formVisible && (
-          <form onSubmit={handleSubmit} className="mb-4 bg-gray-100 p-4 rounded-lg shadow-lg">
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Titre"
-              className="border border-gray-300 rounded-lg p-2 mb-2 w-full"
-            />
-            <textarea
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              placeholder="Contenu"
-              className="border border-gray-300 rounded-lg p-2 mb-2 w-full"
-            />
-            <input
-              type="file"
-              onChange={handleFileChange}
-              className="mb-2"
-            />
-            <div className="flex justify-between">
-              <button type="submit" className="bg-green-500 text-white p-2 rounded-lg hover:bg-green-600">
+      {formVisible && (
+  <form
+    onSubmit={handleSubmit}
+    className="mb-4 bg-white p-6 rounded-lg shadow-lg fixed bottom-20 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center border border-green-600 transition-transform duration-300 ease-in-out"
+  >
+    <h2 className="text-xl font-bold text-green-600 mb-4">Créer une Nouvelle Publication</h2>
+    <input
+      type="text"
+      value={title}
+      onChange={(e) => setTitle(e.target.value)}
+      placeholder="Entrez le titre de votre publication"
+      className="border border-gray-300 rounded-lg p-2 mb-2 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400"
+    />
+    <textarea
+      value={content}
+      onChange={(e) => setContent(e.target.value)}
+      placeholder="Rédigez votre contenu ici..."
+      className="border border-gray-300 rounded-lg p-2 mb-2 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400"
+    />
+    <div className="flex items-center mb-2 w-full">
+      <label htmlFor="file-upload" className="flex items-center cursor-pointer">
+        <FaUpload className="mr-2 text-green-600 hover:text-green-800 transition duration-300" />
+        <input
+          type="file"
+          id="file-upload"
+          onChange={handleFileChange}
+          className="hidden"
+        />
+        <span className="text-gray-700 hover:text-green-600 transition duration-300">Choisir un fichier</span>
+      </label>
+    </div>
+            
+            <div className="flex justify-between w-full mt-4">
+              <button
+                type="submit"
+                className={`${
+                  title || content ? 'bg-green-600 text-white' : 'bg-transparent text-gray-500 border border-gray-300'
+                } p-2 rounded-lg hover:bg-green-700 transition duration-300 w-1/2 mr-2`}
+                disabled={!title && !content} // Désactiver le bouton si aucun texte n'est présent
+              >
                 Publier
               </button>
               <button
                 type="button"
                 onClick={() => setFormVisible(false)}
-                className="ml-2 bg-gray-500 text-white p-2 rounded-lg hover:bg-gray-600"
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 transition duration-300"
               >
-                Annuler
+                <FaTimes size={24} />
               </button>
             </div>
           </form>
         )}
-  
+
+            {formVisible && (
+              <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+            )}
+
+            {formVisible && (
+              <>
+                
+                <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+
+                <form
+                  onSubmit={handleSubmit}
+                  className="mb-4 bg-white p-8 rounded-lg shadow-lg fixed bottom-20 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center border border-green-600 transition-transform duration-300 ease-in-out w-11/12 max-w-lg"
+                >
+                  <h2 className="text-2xl font-bold text-green-600 mb-4 text-center">Créer une publication</h2>
+                  
+                  <input
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="Entrez le titre de votre publication"
+                    className="border border-gray-300 rounded-lg p-3 mb-2 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400"
+                  />
+                  
+                  <textarea
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                    placeholder="Rédigez votre contenu ici..."
+                    className="border border-gray-300 rounded-lg p-3 mb-2 w-full transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400"
+                  />
+                  
+                  <div className="flex items-center mb-2 w-full">
+                    <label htmlFor="file-upload" className="flex items-center cursor-pointer">
+                      <FaUpload className="mr-2 text-green-600 hover:text-green-800 transition duration-300" />
+                      <input
+                        type="file"
+                        id="file-upload"
+                        onChange={handleFileChange}
+                        className="hidden"
+                      />
+                      <span className="text-gray-700 hover:text-green-600 transition duration-300">Choisir un fichier</span>
+                    </label>
+                  </div>
+                  
+                  <div className="flex justify-between items-center w-full mt-4">
+                    <button
+                      type="submit"
+                      className={`${
+                        title || content ? 'bg-green-600 text-white' : 'bg-gray-300 text-gray-700'
+                      } p-3 rounded-lg hover:bg-green-700 transition duration-300 w-full`}
+                      disabled={!title && !content} 
+                    >
+                      {title || content ? 'Publier' : 'Publier'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFormVisible(false)}
+                      className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 transition duration-300"
+                    >
+                      <FaTimes size={20} />
+                    </button>
+                  </div>
+                </form>
+              </>
+            )}
+
         {/* Affiche les 3 premières publications */}
         {publications.slice(0, 3).map((publication) => (
-          <div key={publication.publication_id} className="border border-gray-200 bg-white p-4 mb-4 w-full rounded-lg shadow-md relative">
+          <div key={publication.publication_id} className="border border-gray-200 bg-white p-4 mb-4 w-full rounded-lg shadow-md relative bg-opacity-90">
             <div className="flex items-center mb-4">
               <img
-                src={publication.avatar_url || "/profil.png"}
+                src={publication.avatar_url || "/JOHNS.png"}
                 alt={`${publication.utilisateur_nom} ${publication.utilisateur_prenom}`}
                 width={40}
                 height={40}
@@ -461,22 +543,25 @@ const Discussion: React.FC = () => {
                 onClick={() => handleLike(publication.publication_id)}
                 className="flex items-center hover:text-green-600"
               >
-                <FaHeart className={`mr-1 ${likedPublications.has(publication.publication_id) ? 'text-green-600' : 'text-gray-500'}`} />
+                {likedPublications.has(publication.publication_id) ? (
+                  <FaHeart className="mr-1 text-green-600" />
+                ) : (
+                  <FaRegHeart className="mr-1 text-gray-500" />
+                )}
                 {publication.nbr_reactions}
               </button>
               <button
                 onClick={() => fetchComments(publication.publication_id)}
                 className="flex items-center ml-4 hover:text-green-600"
               >
-                <FaComment className="mr-1" />
+                <FaRegComment className="mr-1 text-gray-500" />
                 {publication.nbr_commentaires}
               </button>
             </div>
   
             {/* Bloc pour les commentaires */}
             {comments[publication.publication_id] && (
-              <div className="mt-4 bg-gray-100 p-4 rounded-lg">
-                {/* Champ pour ajouter un commentaire */}
+              <div className="mt-4 bg-white bg-opacity-70 p-4 rounded-lg">
                 <div className="mb-4 flex">
                   <input
                     type="text"
@@ -495,75 +580,93 @@ const Discussion: React.FC = () => {
   
                 {/* Affichage des commentaires */}
                 {comments[publication.publication_id].map((comment) => (
-                  <div key={comment.commentaire_id} className="border-t border-gray-200 pt-4">
-                    <p className="font-semibold">Utilisateur {comment.commentaire_id}</p>
-                    <p>{comment.commentaire_contenu}</p>
-                    <div className="mt-4 flex items-center">
-                      <button
-                        onClick={() => fetchSubComments(publication.publication_id, comment.commentaire_id)}
-                        className="text-green-500 hover:underline"
-                      >
-                        Voir réponses
-                      </button>
-                      {comment.replies && comment.replies.length > 0 && (
-                        <div className="ml-4">
-                          {comment.replies.map((reply) => (
-                            <div key={reply.commentaire_id} className="border-t border-gray-200 pt-2 ml-4">
-                              <p className="font-semibold">Utilisateur {reply.commentaire_id}</p>
-                              <p>{reply.commentaire_contenu}</p>
-                            </div>
-                          ))}
+                  <div key={comment.commentaire_id} className="border-t border-gray-200 pt-4 flex items-start">
+                    <img
+                      src={comment.avatar_url || "/VANESSA.png"}
+                      alt={`Utilisateur ${comment.commentaire_id}`}
+                      width={40}
+                      height={40}
+                      className="rounded-full object-cover mr-2"
+                    />
+                    <div className="flex-1">
+                      <p className="font-semibold">Utilisateur {comment.commentaire_id}</p>
+                      <p>{comment.commentaire_contenu}</p>
+                      <div className="mt-4 flex items-center">
+                        <button
+                          onClick={() => fetchSubComments(publication.publication_id, comment.commentaire_id)}
+                          className="text-green-500 hover:underline"
+                        >
+                          {comment.replies && comment.replies.length > 0 ? "Voir réponses" : ""}
+                        </button>
+                        {comment.replies && comment.replies.length > 0 && (
+                          <div className="ml-4">
+                            {comment.replies.map((reply) => (
+                              <div key={reply.commentaire_id} className="border-t border-gray-200 pt-2 ml-4 flex items-start">
+                                <img
+                                  src={reply.avatar_url || "/LANDRY.png"}
+                                  alt={`Utilisateur ${reply.commentaire_id}`}
+                                  width={40}
+                                  height={40}
+                                  className="rounded-full object-cover mr-2"
+                                />
+                                <div className="flex-1">
+                                  <p className="font-semibold">Utilisateur {reply.commentaire_id}</p>
+                                  <p>{reply.commentaire_contenu}</p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+  
+                      {/* Champ de réponse aux commentaires */}
+                      <div className="mt-4 flex items-center">
+                        <button
+                          onClick={() => setReplyVisible((prev) => ({
+                            ...prev,
+                            [comment.commentaire_id]: !prev[comment.commentaire_id]
+                          }))}
+                          className="text-blue-500 hover:underline"
+                        >
+                          <FaReply className="mr-1" /> Répondre
+                        </button>
+                      </div>
+  
+                      {replyVisible[comment.commentaire_id] && (
+                        <div className="mt-4 flex">
+                          <input
+                            type="text"
+                            value={newReply[comment.commentaire_id] || ""}
+                            onChange={(e) => setNewReply((prev) => ({
+                              ...prev,
+                              [comment.commentaire_id]: e.target.value,
+                            }))}
+                            placeholder="Répondre..."
+                            className="border border-gray-300 rounded-lg p-2 w-full"
+                          />
+                          <button
+                            onClick={() => {
+                              handleReplyToComment(
+                                publication.publication_id,
+                                comment.commentaire_id,
+                                newReply[comment.commentaire_id] || ""
+                              );
+                              setNewReply((prev) => ({
+                                ...prev,
+                                [comment.commentaire_id]: "",
+                              }));
+                              setReplyVisible((prev) => ({
+                                ...prev,
+                                [comment.commentaire_id]: false,
+                              }));
+                            }}
+                            className="ml-2 bg-green-500 text-white p-2 rounded-lg hover:bg-green-600"
+                          >
+                            Envoyer
+                          </button>
                         </div>
                       )}
                     </div>
-  
-                    {/* Champ de réponse aux commentaires */}
-                    <div className="mt-4 flex items-center">
-                      <button
-                        onClick={() => setReplyVisible((prev) => ({
-                          ...prev,
-                          [comment.commentaire_id]: !prev[comment.commentaire_id]
-                        }))}
-                        className="text-blue-500 hover:underline"
-                      >
-                        <FaReply className="mr-1" /> Répondre
-                      </button>
-                    </div>
-  
-                    {replyVisible[comment.commentaire_id] && (
-                      <div className="mt-4 flex">
-                        <input
-                          type="text"
-                          value={newReply[comment.commentaire_id] || ""}
-                          onChange={(e) => setNewReply((prev) => ({
-                            ...prev,
-                            [comment.commentaire_id]: e.target.value,
-                          }))}
-                          placeholder="Répondre..."
-                          className="border border-gray-300 rounded-lg p-2 w-full"
-                        />
-                        <button
-                          onClick={() => {
-                            handleReplyToComment(
-                              publication.publication_id,
-                              comment.commentaire_id,
-                              newReply[comment.commentaire_id] || ""
-                            );
-                            setNewReply((prev) => ({
-                              ...prev,
-                              [comment.commentaire_id]: "", // Réinitialise le champ
-                            }));
-                            setReplyVisible((prev) => ({
-                              ...prev,
-                              [comment.commentaire_id]: false,
-                            }));
-                          }}
-                          className="ml-2 bg-green-500 text-white p-2 rounded-lg hover:bg-green-600"
-                        >
-                          Envoyer
-                        </button>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
@@ -573,20 +676,20 @@ const Discussion: React.FC = () => {
   
       </div>
   
-      {/* Bouton "Ajouter une publication" toujours en bas */}
-      <div className=" left-0 right-0 p-4 bg-white  flex justify-center z-50">
+      {/* Bouton "Ajouter une publication" toujours visible en bas */}
+      <div className="fixed left-1/2 bottom-4 transform -translate-x-1/2 z-50">
         <button
           onClick={() => setFormVisible(true)}
           className="bg-green-500 text-white p-2 rounded-lg mb-4 hover:bg-green-600"
         >
-          Ajouter une publication
+          Partager un post
         </button>
       </div>
     </div>
   );
   
   
+  };
   
-};
-
-export default Discussion;
+  export default Discussion;
+  
