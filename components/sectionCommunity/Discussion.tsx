@@ -2,12 +2,16 @@
 
 import React, { useState, useEffect } from "react";
 import { FaHeart, FaRegHeart, FaRegComment, FaEllipsisV, FaPaperPlane, FaReply, FaUpload, FaTimes } from 'react-icons/fa';
+import Image from "next/image";
+import { getApiBasePath } from '../../lib/apiConfig'
 
 interface Publication {
   publication_id: string;
   utilisateur_nom: string;
   utilisateur_prenom: string;
   avatar_url?: string;
+  pseudo_utilisateur?: string;
+  img_utilisateur?: string;
   titre: string;
   contenu: string;
   img_publication?: string;
@@ -43,7 +47,7 @@ const Discussion: React.FC = () => {
   const fetchPublications = async () => {
     const token = getToken();
     try {
-      const response = await fetch("http://localhost:5000/forum/publication", {
+      const response = await fetch(`${getApiBasePath()}/forum/publication`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -62,13 +66,13 @@ const Discussion: React.FC = () => {
 
   useEffect(() => {
     fetchPublications();
-  }, []);
+  }, [comments, likedPublications]);
 
   const fetchComments = async (id_publication: string) => {
     const token = getToken();
     try {
       const response = await fetch(
-        `http://localhost:5000/forum/publication/commentaire/${id_publication}`,
+        `${getApiBasePath()}/forum/publication/commentaire/${id_publication}`,
         {
           method: "GET",
           headers: {
@@ -93,7 +97,7 @@ const Discussion: React.FC = () => {
   const fetchSubComments = async (id_publication: string, id_commentaire: number) => {
     const token = getToken();
     try {
-      const url = `http://localhost:5000/forum/publication/commentaire/${id_publication}/${id_commentaire}`;
+      const url = `${getApiBasePath()}/forum/publication/commentaire/${id_publication}/${id_commentaire}`;
       
       // Log the request URL
       console.log(`Fetching sub-comments from: ${url}`);
@@ -177,7 +181,7 @@ const Discussion: React.FC = () => {
     const token = getToken();
 
     try {
-      const response = await fetch("http://localhost:5000/forum/publication", {
+      const response = await fetch(`${getApiBasePath()}/forum/publication`, {
         method: "POST",
         body: formData,
         headers: {
@@ -208,7 +212,7 @@ const Discussion: React.FC = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/forum/publication/${id_publication}`,
+        `${getApiBasePath()}/forum/publication/${id_publication}`,
         {
           method: "DELETE",
           headers: {
@@ -249,7 +253,7 @@ const Discussion: React.FC = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/forum/publication/reagir/${id_publication}`,
+        `${getApiBasePath()}/forum/publication/reagir/${id_publication}`,
         {
           method: "GET",
           headers: {
@@ -295,7 +299,7 @@ const Discussion: React.FC = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/forum/publication/commenter/${id_publication}`,
+        `${getApiBasePath()}/forum/publication/commenter/${id_publication}`,
         {
           method: "POST",
           headers: {
@@ -347,7 +351,7 @@ const Discussion: React.FC = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/forum/publication/commentaire/repondre/${id_publication}/${id_main_commentaire}`,
+        `${getApiBasePath()}/forum/publication/commentaire/repondre/${id_publication}/${id_main_commentaire}`,
         {
           method: "POST",
           headers: {
@@ -384,6 +388,7 @@ const Discussion: React.FC = () => {
       alert("Erreur de connexion au serveur.");
     }
   };
+
   return (
     <div className="w-full max-w-7xl mx-auto p-10 relative">
       <div className="w-full max-w-5xl mx-auto relative">
@@ -507,11 +512,11 @@ const Discussion: React.FC = () => {
             )}
 
         {/* Affiche les 3 premières publications */}
-        {publications.slice(0, 3).map((publication) => (
+        {publications.map((publication) => (
           <div key={publication.publication_id} className="border border-gray-200 bg-white p-4 mb-4 w-full rounded-lg shadow-md relative bg-opacity-90">
             <div className="flex items-center mb-4">
-              <img
-                src={publication.avatar_url || "/JOHNS.png"}
+              <Image
+                src={`${getApiBasePath()}/uploads/${publication.img_utilisateur}`}
                 alt={`${publication.utilisateur_nom} ${publication.utilisateur_prenom}`}
                 width={40}
                 height={40}
@@ -530,14 +535,18 @@ const Discussion: React.FC = () => {
                 <FaEllipsisV size={25} />
               </button>
             </div>
-            <p className="mt-2 text-gray-800">{publication.contenu}</p>
+            {/* <p className="mt-2 text-gray-800">{publication.contenu}</p> */}
+            <div className="mt-2 text-gray-800" dangerouslySetInnerHTML={{ __html: publication.contenu }} />
             {publication.img_publication && (
-              <img
-                src={`http://localhost:5000/uploads/${publication.img_publication}`}
+              <Image
+                src={`${getApiBasePath()}/uploads/${publication.img_publication}`}
                 alt="Publication"
                 className="w-full mt-2 max-h-96 object-cover rounded-lg"
+                width={120}
+                height={50}
               />
             )}
+
             <div className="mt-2 flex items-center text-gray-600">
               <button
                 onClick={() => handleLike(publication.publication_id)}
@@ -581,7 +590,7 @@ const Discussion: React.FC = () => {
                 {/* Affichage des commentaires */}
                 {comments[publication.publication_id].map((comment) => (
                   <div key={comment.commentaire_id} className="border-t border-gray-200 pt-4 flex items-start">
-                    <img
+                    <Image
                       src={comment.avatar_url || "/VANESSA.png"}
                       alt={`Utilisateur ${comment.commentaire_id}`}
                       width={40}
@@ -602,7 +611,7 @@ const Discussion: React.FC = () => {
                           <div className="ml-4">
                             {comment.replies.map((reply) => (
                               <div key={reply.commentaire_id} className="border-t border-gray-200 pt-2 ml-4 flex items-start">
-                                <img
+                                <Image
                                   src={reply.avatar_url || "/LANDRY.png"}
                                   alt={`Utilisateur ${reply.commentaire_id}`}
                                   width={40}

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Discussion from "@/components/sectionCommunity/Discussion";
-import Accueil from "@/components/sectionCommunity/accueil"; 
+import Accueil from "@/components/sectionCommunity/accueil";
 import HeaderCommunity from '@/components/sectionCommunity/HeaderCommunity';
 
 

@@ -28,7 +28,7 @@ const PageCommunity: React.FC = () => {
 
   if (!isAuthenticated) {
     typeof window !== "undefined" && (window.location.href = "/community/login");
-    return <div>Vous n'êtes pas authentifié. Redirection en cours...</div>;
+    return <div>Vous n`&apos;`êtes pas authentifié. Redirection en cours...</div>;
   }
 
   return (

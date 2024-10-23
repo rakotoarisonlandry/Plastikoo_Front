@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Homepage from "@/components/section/header/Homepage";
 import Contact from "@/app/contact/page";
+import Image from "next/image";
 
 const PanierPage: React.FC = () => {
   const [isSummaryVisible, setSummaryVisible] = useState(false);
@@ -84,7 +85,7 @@ const PanierPage: React.FC = () => {
               />
 
 
-              <img src="/image.png" alt="Produit" className="w-48 h-48 object-cover rounded-lg mr-4" />
+              <Image src="/image.png" alt="Produit" className="w-48 h-48 object-cover rounded-lg mr-4" />
 
               <div className="flex-1">
                 <h3 className="text-lg font-semibold">{product.name}</h3>
@@ -122,7 +123,6 @@ const PanierPage: React.FC = () => {
         </button>
       </div>
 
-   
       {isSummaryVisible && (
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl mt-6 md:mt-0 md:ml-6">
           <h2 className="text-3xl font-bold mb-6">Résumé</h2>
@@ -148,9 +148,9 @@ const PanierPage: React.FC = () => {
           <div className="mt-8">
             <h3 className="text-2xl font-bold mb-4">Payez avec</h3>
             <div className="flex justify-around mb-8">
-              <img src="/orangeMoney.png" alt="Orange Money" className="h-12" />
-              <img src="/mvola.png" alt="MVola" className="h-12" />
-              <img src="/airtel.png" alt="Airtel Money" className="h-12" />
+              <Image src="/orangeMoney.png" alt="Orange Money" className="h-12" />
+              <Image src="/mvola.png" alt="MVola" className="h-12" />
+              <Image src="/airtel.png" alt="Airtel Money" className="h-12" />
             </div>
           </div>
 

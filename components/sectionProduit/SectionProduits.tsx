@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link'; 
 import { Reveal } from "../utils/Reveal";
 import { RevealLeft } from "../utils/RevealLeft";
+import Image from 'next/image';
 
 const SectionProduit: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const SectionProduit: React.FC = () => {
               
               <RevealLeft>
                 <div className="bg-white text-black border-primary border-[2px] rounded-xl p-4 w-72 min-h-[450px] text-center shadow-lg hover:shadow-xl transition-shadow duration-300"> {/* Ajout de min-h-[450px] pour uniformiser la hauteur */}
-                  <img src="/briques.png" alt="Briques" className="w-full h-48 object-cover mb-4 rounded"/>
+                  <Image src="/briques.png" alt="Briques" className="w-full h-48 object-cover mb-4 rounded" width={170} height={40}/>
                   <h3 className="text-lg font-semibold mb-3 text-black">Briques</h3>
                   <p className="text-gray-700 mb-4 text-[14px]">Découvrez nos briques durables et écologiques, parfaites pour toutes vos constructions.</p>
                   <Link href="/products/Briques">
@@ -32,9 +33,9 @@ const SectionProduit: React.FC = () => {
               {/* Produit 2 */}
               <RevealLeft>
                 <div className="bg-white text-black border-primary border-[2px] rounded-xl p-4 w-72 min-h-[450px] text-center shadow-lg hover:shadow-xl transition-shadow duration-300"> {/* Ajout de min-h-[450px] */}
-                  <img src="/tuile.png" alt="Tuiles" className="w-full h-48 object-cover mb-4 rounded"/>
+                  <Image src="/tuile.png" alt="Tuiles" className="w-full h-48 object-cover mb-4 rounded" width={170} height={40}/>
                   <h3 className="text-lg font-semibold mb-3 text-black">Tuiles</h3>
-                  <p className="text-gray-700 mb-4 text-[14px]">Optez pour nos tuiles résistantes et respectueuses de l'environnement, idéales pour une toiture durable.</p>
+                  <p className="text-gray-700 mb-4 text-[14px]">Optez pour nos tuiles résistantes et respectueuses de l&apos;environnement, idéales pour une toiture durable.</p>
                   <Link href="/products/Tuiles">
                     <button className="bg-primary text-white py-2 px-6 rounded hover:bg-blue-600 transition duration-300">
                       Découvrir
@@ -46,7 +47,7 @@ const SectionProduit: React.FC = () => {
               {/* Produit 3 */}
               <RevealLeft>
                 <div className="bg-white text-black border-primary border-[2px] rounded-xl p-4 w-72 min-h-[450px] text-center shadow-lg hover:shadow-xl transition-shadow duration-300"> {/* Ajout de min-h-[450px] */}
-                  <img src="/door.png" alt="Porte" className="w-full h-48 object-cover mb-4 rounded"/>
+                  <Image src="/door.png" alt="Porte" className="w-full h-48 object-cover mb-4 rounded" width={170} height={40}/>
                   <h3 className="text-lg font-semibold mb-3 text-black">Porte</h3>
                   <p className="text-gray-700 mb-4 text-[14px]">Découvrez des portes uniques conçues à partir de plastique recyclé.</p>
                   <Link href="/products/Portes">
@@ -80,9 +81,9 @@ const SectionProduit: React.FC = () => {
               
             <RevealLeft>
             <div className="bg-black text-white border-primary border-[2px] rounded-xl p-4 w-72 min-h-[450px] text-center shadow-lg hover:shadow-xl transition-shadow duration-300"> {/* Ajout de min-h-[450px] */}
-              <img src="/tinyhouse.png" alt="Tiny House" className="w-full h-48 object-cover mb-4 rounded"/>
+              <Image src="/tinyhouse.png" alt="Tiny House" className="w-full h-48 object-cover mb-4 rounded" width={170} height={40}/>
               <h3 className="text-lg font-semibold mb-3">Tiny House</h3>
-              <p className="text-gray-300 mb-4 text-[14px]">"Construisez des maisons durables et abordables avec nos briques, idéales pour un espace de vie écologique et confortable."</p>
+              <p className="text-gray-300 mb-4 text-[14px]">&quot;Construisez des maisons durables et abordables avec nos briques, idéales pour un espace de vie écologique et confortable.&quot;</p>
               <Link href="/products/TinyHouse">
                 <button className="bg-primary text-white py-2 px-6 rounded hover:bg-blue-600 transition duration-300 mt-4"> {/* Ajout de mt-4 pour aligner le bouton */}
                   Découvrir
@@ -94,9 +95,9 @@ const SectionProduit: React.FC = () => {
               
                 <RevealLeft>
                   <div className="bg-black text-white border-primary border-[2px] rounded-xl p-4 w-72 min-h-[450px] text-center shadow-lg hover:shadow-xl transition-shadow duration-300"> {/* Ajout de min-h-[450px] */}
-                    <img src="/tinyclassroom.png" alt="Tiny Classroom" className="w-full h-48 object-cover mb-4 rounded"/>
+                    <Image src="/tinyclassroom.png" alt="Tiny Classroom" className="w-full h-48 object-cover mb-4 rounded" width={170} height={40}/>
                     <h3 className="text-lg font-semibold mb-3">Tiny Classroom</h3>
-                    <p className="text-gray-300 mb-4 text-[14px]">"Explorez des salles de classes conçues à partir de nos briques pour un environnement d’apprentissage propre et inspirant."</p>
+                    <p className="text-gray-300 mb-4 text-[14px]">&quot;Explorez des salles de classes conçues à partir de nos briques pour un environnement d&apos;apprentissage propre et inspirant.&quot;</p>
                     <Link href="/products/TinyClassroom">
                       <button className="bg-primary text-white py-2 px-6 rounded hover:bg-blue-600 transition duration-300">
                         Découvrir
@@ -107,9 +108,9 @@ const SectionProduit: React.FC = () => {
               
               <RevealLeft>
                 <div className="bg-black text-white border-primary border-[2px] rounded-xl p-4 w-72 min-h-[450px] text-center shadow-lg hover:shadow-xl transition-shadow duration-300"> {/* Ajout de min-h-[450px] */}
-                  <img src="/tinylibrary.png" alt="Tiny Library" className="w-full h-48 object-cover mb-4 rounded"/>
+                  <Image src="/tinylibrary.png" alt="Tiny Library" className="w-full h-48 object-cover mb-4 rounded" width={170} height={40}/>
                   <h3 className="text-lg font-semibold mb-3">Tiny Library</h3>
-                  <p className="text-gray-300 mb-4 text-[14px]">"Créez un espace de lecture agréable et confortable avec nos briques, parfait pour stimuler l’esprit, éveiller la curiosité et encourager l’apprentissage."</p>
+                  <p className="text-gray-300 mb-4 text-[14px]">&quot;Créez un espace de lecture agréable et confortable avec nos briques, parfait pour stimuler l’esprit, éveiller la curiosité et encourager l’apprentissage.&quot;</p>
                   <Link href="/products/TinyLibrary">
                     <button className="bg-primary text-white py-2 px-6 rounded hover:bg-blue-600 transition duration-300">
                       Découvrir

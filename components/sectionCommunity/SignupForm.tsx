@@ -32,7 +32,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSignup }) => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-4">S'inscrire</h2>
+      <h2 className="text-2xl font-bold mb-4">S&apos;inscrire</h2>
       {error && <p className="text-red-500 mb-4">{error}</p>}
       <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
         <div className="mb-4">
@@ -72,7 +72,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSignup }) => {
           type="submit"
           className="bg-green-500 text-white p-2 rounded"
         >
-          S'inscrire
+          S&apos;inscrire
         </button>
       </form>
     </div>
