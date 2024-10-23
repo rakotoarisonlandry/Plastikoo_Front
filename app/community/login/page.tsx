@@ -49,6 +49,8 @@ const Login: React.FC = () => {
           localStorage.setItem("authToken", data.token); // Enregistrez le token
           router.push("/community");
         } else {
+          const error = data.error
+          console.log(error)
           setError("Identifiant ou mot de passe incorrect.");
         }
       } else {
@@ -127,7 +129,7 @@ const Login: React.FC = () => {
               )}
 
               <p className="text-center text-gray-700 mt-4">
-                Vous n&apos;avez pas de compte ?{" "}
+                Vous n'avez pas de compte ?{" "}
                 <a
                   onClick={handleSignUp}
                   className="text-blue-500 cursor-pointer hover:underline"
