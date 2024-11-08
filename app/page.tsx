@@ -1,7 +1,6 @@
 "use client";
 
 import Binding from "@/components/section/binding/Binding";
-import AutreProduit from "@/components/section/find/AutreProduit";
 import Homepage from "@/components/section/header/Homepage";
 import LIkeNumber from "@/components/section/like/LIkeNumber";
 import Mission from "@/components/section/mission/Mission";
@@ -23,7 +22,6 @@ export default function Home() {
       <Solutions />
       <Solution />
       <LIkeNumber />
-      <AutreProduit />
       <Team />
       <Partner />
       <Contact />

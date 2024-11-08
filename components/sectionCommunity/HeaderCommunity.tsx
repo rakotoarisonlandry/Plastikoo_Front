@@ -42,7 +42,7 @@ const HeaderCommunity: React.FC<Props> = () => {
           <div className="flex items-center justify-between h-20">
             <Reveal>
               <div className="flex-shrink-0 flex items-center">
-                <Link href="/" className="text-black font-bold text-lg">
+                <Link href="/" className="text-dark font-bold text-lg">
                   <Image src="/logo.png" width="170" height="170" alt="logo" />
                 </Link>
               </div>
@@ -76,7 +76,7 @@ const HeaderCommunity: React.FC<Props> = () => {
                     <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg z-10">
                       <button
                         onClick={handleLogout}
-                        className="flex items-center w-full text-left px-3 py-1.5 text-gray-700 bg-green-500 text-white hover:bg-green-600 transition-colors duration-200 rounded-md text-sm"
+                        className="flex items-center w-full text-left px-3 py-1.5 bg-green-500 text-white hover:bg-green-600 transition-colors duration-200 rounded-md text-sm"
                       >
                         <FaPaperPlane className="mr-2 text-white" />
                         Déconnexion

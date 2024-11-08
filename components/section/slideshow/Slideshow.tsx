@@ -3,13 +3,16 @@ import React from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
-const spanStyle = {
-  padding: "20px",
-  background: "#efefef",
-  color: "#000000",
-};
+interface SlideImage {
+  url: string;
+  caption?: string;
+}
 
-const divStyle = {
+interface SlideshowProps {
+  images: SlideImage[];
+}
+
+const divStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -18,22 +21,7 @@ const divStyle = {
   width: "100%",
 };
 
-const slideImages = [
-  {
-    url: "/slide3.png",
-    caption: "Slide 1",
-  },
-  {
-    url: "/slide1.png",
-    caption: "Slide 2",
-  },
-  {
-    url: "/slide2.png",
-    caption: "Slide 3",
-  },
-];
-
-const Slideshow = () => {
+const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
   const properties = {
     prevArrow: (
       <button className="hidden w-12 h-12 bg-white text-primary rounded-full absolute ml-5 transform -translate-y-1/2 top-1/2  justify-center items-center z-10">
@@ -46,10 +34,11 @@ const Slideshow = () => {
       </button>
     ),
   };
+
   return (
-    <div className="slide-container relative">
+    <div className="relative">
       <Slide {...properties}>
-        {slideImages.map((slideImage, index) => (
+        {images.map((slideImage, index) => (
           <div key={index}>
             <div
               style={{ ...divStyle, backgroundImage: `url(${slideImage.url})` }}

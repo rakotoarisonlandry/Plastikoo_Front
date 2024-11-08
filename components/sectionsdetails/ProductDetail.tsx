@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
+import Image from 'next/image';
 
 interface Product {
   nom: string;
@@ -34,7 +35,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, smallImages, rel
 
       {/* Détails du produit */}
       <div className="flex flex-col lg:flex-row justify-between items-start mb-6 space-y-4 lg:space-y-0">
-        <img
+        <Image
           src={product.image}
           alt={product.nom}
           className="w-full lg:w-1/2 h-64 object-cover rounded"
@@ -47,7 +48,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, smallImages, rel
 
           <div className="flex flex-wrap space-x-2 space-y-2 mb-4">
             {smallImages.map((image, index) => (
-              <img
+              <Image
                 key={index}
                 src={image}
                 alt={`Small ${index}`}
@@ -75,7 +76,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, smallImages, rel
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {relatedProducts.map((relatedProduct, index) => (
             <div key={index} className="bg-white p-4 rounded-lg shadow-lg">
-              <img
+              <Image
                 src={relatedProduct.image}
                 alt={relatedProduct.nom}
                 className="w-full h-40 object-cover mb-4 rounded"
