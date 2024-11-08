@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import { useRouter } from 'next/navigation';
 import { Reveal } from "@/components/utils/Reveal";
 import { RevealLeft } from "@/components/utils/RevealLeft";
+import Image from "next/image";
+import { getApiBasePath } from '../../../lib/apiConfig'
+
+console.log(getApiBasePath())
 
 const Login: React.FC = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -27,8 +31,7 @@ const Login: React.FC = () => {
     setFieldError(""); // Réinitialiser les erreurs de champs vides
 
     try {
-
-      const response = await fetch(`${process.env.BACKEND_ADDRESS}/utilisateur/connecter`, {
+      const response = await fetch(`${getApiBasePath()}/utilisateur/connecter`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +75,8 @@ const Login: React.FC = () => {
       <div className="flex h-screen w-screen">
         <div className="relative flex flex-col justify-center w-full md:w-1/2 p-8 bg-white">
           <div className="absolute top-4 left-4">
-            <img src="/logo.png" alt="Logo" className="w-32 h-auto" />
+            {/* <img src="/logo.png" alt="Logo" className="w-32 h-auto" /> */}
+            <Image src="/logo.png" alt="Logo" width={128} height={64} />
           </div>
 
           <div className="flex flex-col justify-center items-center w-full max-w-md mx-auto mt-16">
@@ -125,7 +129,7 @@ const Login: React.FC = () => {
               )}
 
               <p className="text-center text-gray-700 mt-4">
-                Vous n&apos; avez pas de compte ?{" "}
+                Vous n'avez pas de compte ?{" "}
                 <a
                   onClick={handleSignUp}
                   className="text-blue-500 cursor-pointer hover:underline"
@@ -137,7 +141,7 @@ const Login: React.FC = () => {
           </div>
         </div>
 
-        <div className="hidden md:block md:w-1/2 flex h-full bg-cover bg-center" style={{ backgroundImage: "url('/slide1.png')" }}>
+        <div className="hidden md:block md:w-1/2 h-full bg-cover bg-center" style={{ backgroundImage: "url('/slide1.png')" }}>
           <div className="flex flex-col justify-center items-center text-center w-full h-full bg-black bg-opacity-50 p-8">
             <Reveal>
               <h1 className="text-white text-4xl font-bold mb-4">Bienvenue chez Plastikoo</h1>

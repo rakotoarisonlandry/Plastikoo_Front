@@ -5,19 +5,75 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { useRouter } from 'next/navigation';
 import { Reveal } from "../utils/Reveal";
-import { FaPaperPlane } from "react-icons/fa"; 
+import { FaPaperPlane } from "react-icons/fa";
+import { getApiBasePath } from '../../lib/apiConfig'
+
 
 type Props = {};
-
+interface UserProfile {
+  id: number;
+  nom: string;
+  prenom: string;
+  email: string;
+  pseudo: string;
+  img_profil: string; // Assuming the URL to the profile image is a string
+  solde: number; // Assuming solde is a numerical value
+  date_naissance: string; // Use string to store the date in ISO format (YYYY-MM-DD)
+}
 const HeaderCommunity: React.FC<Props> = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [profileExpanded, setProfileExpanded] = useState(false);
+  const [user, setUser] = useState<UserProfile>({
+    id: 0,
+    nom: '',
+    prenom: '',
+    email: '',
+    pseudo: '',
+    img_profil: '',
+    solde: 0,
+    date_naissance: ''
+  });
+  
   const router = useRouter();
 
   useEffect(() => {
     const authStatus = localStorage.getItem("isAuthenticated");
     setIsAuthenticated(authStatus === "true");
+    // If the user is authenticated, fetch their data
+    if (authStatus === "true") {
+      const fetchUserData = async () => {
+        const token = localStorage.getItem("authToken");
+
+        if (token) {
+          try {
+            const response = await fetch(`${getApiBasePath()}/utilisateur/infos`, {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            });
+
+            if (response.ok) {
+              const data = await response.json(); // Parse the JSON response
+              // console.log(data[0])
+              setUser(data[0]); // Store the fetched data in the state
+            } else {
+              console.error("Error fetching user data: ", response.statusText);
+            }
+            // console.log(`${getApiBasePath()}/uploads/${user.img_profil}`)
+          } catch (error) {
+            console.error("Error occurred while fetching data: ", error);
+          }
+        } else {
+          console.error("No token found in localStorage");
+        }
+      };
+
+      // Call the function to fetch user data
+      fetchUserData();
+    }
   }, []);
 
   const handleLogout = () => {
@@ -50,8 +106,8 @@ const HeaderCommunity: React.FC<Props> = () => {
             <div className="flex-grow flex justify-center items-center">
               <Reveal>
               <p className="text-primary text-center font-bold">
-                  Votre engagement pour un avenir durable se construit ici !
-                </p>
+                Votre engagement pour un avenir durable se construit ici !
+              </p>
               </Reveal>
             </div>
             {isAuthenticated && (
@@ -62,11 +118,21 @@ const HeaderCommunity: React.FC<Props> = () => {
                   </Button>
                 </Link>
                 <div className="relative">
-                  <Image
+                  {/* <Image
                     src="/profil.png"
                     alt="Profile Avatar"
                     width={40}
                     height={40}
+                    className={`rounded-full cursor-pointer transition-transform duration-300 ${
+                      profileExpanded ? "transform scale-125" : ""
+                    }`}
+                    onClick={toggleDropdown}
+                  /> */}
+                  <Image 
+                    src={`${getApiBasePath()}/uploads/${user.img_profil}`}  // Dynamically load user's profile image
+                    width={40} 
+                    height={40} 
+                    alt={`${user.prenom}'s profile`}
                     className={`rounded-full cursor-pointer transition-transform duration-300 ${
                       profileExpanded ? "transform scale-125" : ""
                     }`}

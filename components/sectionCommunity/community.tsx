@@ -45,7 +45,7 @@ const SectionCommunity: React.FC = () => {
             Plastikoo transforme les déchets plastiques en solutions durables. Nous
             collectons et recyclons les plastiques pour concevoir et fabriquer des
             matériaux de construction innovants et écologiques, contribuant ainsi à
-            réduire la pollution plastique de la ville d'Antananarivo.
+            réduire la pollution plastique de la ville d&apos;Antananarivo.
           </p>
         </div>
 

@@ -3,6 +3,7 @@ import LayoutLoginSignUp from "../layoutLoginSignUp";
 import React, { useState } from "react";
 import { useRouter } from 'next/navigation';
 import { RevealLeft } from "@/components/utils/RevealLeft";
+import { getApiBasePath } from '../../../lib/apiConfig'
 
 const SignUp: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -62,7 +63,7 @@ const SignUp: React.FC = () => {
         date_naissance: dateDeNaissance,
       });
 
-      const response = await fetch('http://localhost:5000/utilisateur/inscription', {
+      const response = await fetch(`http://${getApiBasePath()}/utilisateur/inscription`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
