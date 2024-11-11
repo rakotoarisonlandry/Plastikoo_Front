@@ -54,19 +54,19 @@ const ServiceSection: React.FC = () => {
             <h4 className="text-xl font-bold text-gray-900 mb-6">Les avantages de construire avec nous :</h4>
             <div className="flex flex-wrap justify-center gap-8">
               <div className="flex flex-col items-center">
-                <Image src="/icon1.png" alt="Rapidité et Efficacité" className="mb-4 w-16 h-16 object-contain" />
+                <Image src="/slide1.png" width={100} height={100} alt="Rapidité et Efficacité" className="mb-4 w-16 h-16 object-contain" />
                 <p className="text-sm text-gray-600">Rapidité et Efficacité</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image src="/icon2.png" alt="Matériaux Innovants et Durables" className="mb-4 w-16 h-16 object-contain" />
+                <Image src="/slide2.png" width={100} height={100} alt="Matériaux Innovants et Durables" className="mb-4 w-16 h-16 object-contain" />
                 <p className="text-sm text-gray-600">Matériaux Innovants et Durables</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image src="/icon3.png" alt="Impact Environnemental Positif" className="mb-4 w-16 h-16 object-contain" />
+                <Image src="/slide3.png" width={100} height={100} alt="Impact Environnemental Positif" className="mb-4 w-16 h-16 object-contain" />
                 <p className="text-sm text-gray-600">Impact Environnemental Positif</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image src="/icon4.png" alt="Solutions Clés en Main" className="mb-4 w-16 h-16 object-contain" />
+                <Image src="/slide3.png" width={100} height={100} alt="Solutions Clés en Main" className="mb-4 w-16 h-16 object-contain" />
                 <p className="text-sm text-gray-600">Solutions Clés en Main</p>
               </div>
             </div>
@@ -78,7 +78,7 @@ const ServiceSection: React.FC = () => {
           <h3 className="text-3xl font-bold text-green-600 mb-8 text-center">Services de publicité</h3>
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2">
-              <Image src="/Rectangle223.png" alt="Machine de récolte" className="w-full h-auto mb-4" />
+              <Image src="/Rectangle223.png" width={100} height={100} alt="Machine de récolte" className="w-full h-auto mb-4" />
             </div>
             <div className="md:w-1/2">
               <p className="text-gray-700 mb-4">
@@ -91,7 +91,7 @@ const ServiceSection: React.FC = () => {
             <h4 className="text-xl font-bold text-gray-900 mb-6 text-center">Les Avantages de Poser la Publicité sur Notre Machine de Récolte PLASTIKÔO :</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="md:w-1/2">
-                <Image src="/Machine.png" alt="Avantages publicité" className="w-full h-auto mb-4" />
+                <Image src="/Machine.png"  width={100} height={100}  alt="Avantages publicité" className="w-full h-auto mb-4" />
               </div>
               <div className="md:w-1/2">
                 <ul className="list-decimal pl-5 text-gray-700 space-y-4">

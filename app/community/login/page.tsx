@@ -129,7 +129,7 @@ const Login: React.FC = () => {
               )}
 
               <p className="text-center text-gray-700 mt-4">
-                Vous n'avez pas de compte ?{" "}
+                Vous n&lsquo;avez pas de compte ?
                 <a
                   onClick={handleSignUp}
                   className="text-blue-500 cursor-pointer hover:underline"
