@@ -9,7 +9,7 @@ const Contact = (props: Props) => {
       {/* Image Section */}
       <div className="relative w-full lg:w-1/2 h-[300px] lg:h-full">
         <Image
-          src="/slide1.png"
+          src="/contact.png"
           alt="Contact image"
           fill
           style={{ objectFit: "cover" }}

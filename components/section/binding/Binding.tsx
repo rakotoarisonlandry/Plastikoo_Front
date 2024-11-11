@@ -60,7 +60,7 @@ function Binding({}: Props) {
     <div className="lg:p-20 px-6 bg-gray-100">
       <Reveal>
         <h1
-          className="text-center text-3xl font-bold mb-8 lg:mt-0 mt-10"
+          className="text-[40px] font-black font-montserrat text-primary mb-8"  
           id="binding"
         >
           Nos engagements

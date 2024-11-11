@@ -10,7 +10,7 @@ type TeamMember = {
 
 const team: TeamMember[] = [
   {
-    name: "NOMBANISTSOA Sarobidy",
+    name: "NOMBANTSITOHA Sarobidy",
     role: "PROJECT MANAGER",
     image: "/TSITOO.png",
     bgColor: "bg-green-500",
@@ -65,19 +65,19 @@ const Team = () => {
     <div className="">
       <div className="bg-primary  mb-10 flex flex-col items-center justify-center text-center overflow-hidden h-auto px-10 py-8 sm:p-10 md:p-16 lg:p-24">
         <Reveal>
-          <h1 className="text-[28px] sm:text-3xl md:text-4xl lg:text-[40px] font-bold text-white mb-5">
+          <h1 className="text-[40px] font-black font-montserrat text-white mb-5">
             Notre vision
           </h1>
         </Reveal>
         {/* <Reveal> */}
-        <h1 className="text-white mb-6 text-[16px] lg:text-[28px] px-4 sm:text-[16px] md:text-[18px] font-semibold sm:px-10 md:px-16 lg:px-24">
+        <h1 className="text-white mb-6 text-[30px] font-semibold font-montserrat px-4 sm:px-10 md:px-16 lg:px-24">
           Une planète où le plastique ne pollue plus, mais bâtit des
           possibilités infinies.
         </h1>
         {/* </Reveal> */}
       </div>
-      <Reveal>
-        <h1 className="text-center text-primary text-3xl font-black mb-8">
+      <Reveal>k
+        <h1 className="text-[40px] font-black font-montserrat text-center text-primary mb-5">
           Notre Équipe
         </h1>
       </Reveal>

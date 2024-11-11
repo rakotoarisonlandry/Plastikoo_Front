@@ -11,11 +11,11 @@ type Props = {};
 const listContact = [
   {
     icon: <MdOutlineMailOutline />,
-    Descriptions: "Plastikoo@gmail.com",
+    Descriptions: "akory@plastikoo.mg",
   },
   {
     icon: <FaPhoneAlt />,
-    Descriptions: "+261 32 44 401 81 ",
+    Descriptions: "+261 37 81 580 03 ",
   },
   {
     icon: <MdGpsFixed />,

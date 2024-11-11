@@ -5,6 +5,7 @@ import React from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css"; // Importing styles for the slideshow
 
+
 function ProductToBuy() {
   const slideImages = [
     { url: "/slide3.png", caption: "Slide 1" },

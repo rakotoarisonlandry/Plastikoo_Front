@@ -3,21 +3,8 @@ import React from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
-<<<<<<< Updated upstream
-interface SlideImage {
-  url: string;
-  caption?: string;
-}
-
-interface SlideshowProps {
-  images: SlideImage[];
-}
-
-const divStyle: React.CSSProperties = {
-=======
 // Styles pour chaque slide
 const divStyle = {
->>>>>>> Stashed changes
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -27,9 +14,6 @@ const divStyle = {
   width: "100%",
 };
 
-<<<<<<< Updated upstream
-const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
-=======
 // Images du diaporama
 const slideImages = [
   {
@@ -47,7 +31,6 @@ const slideImages = [
 ];
 
 const Slideshow = () => {
->>>>>>> Stashed changes
   const properties = {
     prevArrow: (
       <button className="w-10 h-10 hidden bg-white text-black rounded-full absolute left-5 transform -translate-y-1/2 top-1/2 z-10 hover:bg-gray-300 transition duration-300 ease-in-out">
@@ -62,15 +45,10 @@ const Slideshow = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="slide-container relative">
       <Slide {...properties}>
-<<<<<<< Updated upstream
-        {images.map((slideImage, index) => (
-          <div key={index}>
-=======
         {slideImages.map((slideImage, index) => (
           <div key={index} className="relative">
->>>>>>> Stashed changes
             <div
               style={{ ...divStyle, backgroundImage: `url(${slideImage.url})` }}
               className="bg-cover bg-center"
