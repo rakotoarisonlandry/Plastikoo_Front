@@ -1,7 +1,7 @@
 "use client";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 interface Props {
   children: React.ReactNode;
@@ -14,14 +14,22 @@ export const RevealLeft: React.FC<Props> = ({ children }) => {
   });
 
   const controls = useAnimation();
+  const [hasAnimated, setHasAnimated] = useState(false); // Suivi de l'animation
+
+  // useEffect(() => {
+  //   if (inView) {
+  //     controls.start("visible");
+  //   } else {
+  //     controls.start("hidden");
+  //   }
+  // }, [inView, controls]);
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !hasAnimated) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
+      setHasAnimated(true); // Empêche la répétition de l'animation
     }
-  }, [inView, controls]);
+  }, [inView, controls, hasAnimated]);
 
   return (
     <div

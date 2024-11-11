@@ -8,7 +8,7 @@ function Education({}: Props) {
     <div className="flex">
       <h1></h1>
       <Image
-        src="logotransparent.png"
+        src="/images/logotransparent.png"
         alt="Iamgelogo"
         width="200"
         height="200"

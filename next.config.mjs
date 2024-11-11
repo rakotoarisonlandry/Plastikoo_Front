@@ -1,15 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'export',
     images: {
-        remotePatterns: [
-          {
-            protocol: 'http',
-            hostname: '13.38.147.124', // add the IP address
-            port: '', // leave this empty unless a specific port is used
-            pathname: '/uploads/**', // adjust the pathname to match your image path
-          },
-        ],
-      },
+        unoptimized:true
+    },
+    webpack(config) {
+        config.module.rules.push({
+            test: /\.svg$/, // Regex pour les fichiers SVG
+            use: ["@svgr/webpack"], // Utilisation de SVGR pour transformer les SVG en composants React
+        });
+        return config;
+    },
 };
-
 export default nextConfig;
