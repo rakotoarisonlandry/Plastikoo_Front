@@ -10,21 +10,23 @@ import Task from "@/components/section/task/Task";
 import Team from "@/components/section/teams/Team";
 import Contact from "./contact/page";
 import Partner from "@/components/section/partner/Partner";
+import { Header } from "antd/es/layout/layout";
+import Footer from "@/components/section/footer/Footer";
 
 export default function Home() {
   return (
-   
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex overflow-x-hidden flex-col">
       <Homepage />
       <Task />
       <Mission />
       <Binding />
-      <Solutions />
+      {/* <Solutions /> */}
       <Solution />
       <LIkeNumber />
       <Team />
       <Partner />
       <Contact />
+      <Footer />
     </div>
   );
 }

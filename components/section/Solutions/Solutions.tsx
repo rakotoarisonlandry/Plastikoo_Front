@@ -10,7 +10,7 @@ const Solutions: React.FC = () => {
       description:
         "Plastikôo sensibilise et éduque sur l'importance du recyclage via des campagnes et des programmes éducatifs.",
       bgColor: "bg-gray-500",
-      image: "/Vector.png",
+      image: "/images/Vector.png",
       textColor: "text-white",
     },
      {
@@ -19,7 +19,7 @@ const Solutions: React.FC = () => {
       description:
         "Nous utilisons des machines innovantes pour la collecte des déchets plastiques, installées dans des zones d'affluence.",
       bgColor: "bg-red-500",
-      image: "/Vector2.png",
+      image: "/images/Vector2.png",
       textColor: "text-white",
     },
    
@@ -29,7 +29,7 @@ const Solutions: React.FC = () => {
       description:
         "Les plastiques collectés sont triés et transformés en nouveaux produits innovants pour la construction.",
       bgColor: "bg-green-500",
-      image: "/Vector3.png",
+      image: "/images/Vector3.png",
       textColor: "text-black",
     },
     {
@@ -38,7 +38,7 @@ const Solutions: React.FC = () => {
       description:
         "Les matériaux recyclés sont utilisés pour construire des infrastructures éco-responsables.",
       bgColor: "bg-blue-500",
-      image: "/Vector4.png",
+      image: "/images/Vector4.png",
       textColor: "text-white",
     },
   ];

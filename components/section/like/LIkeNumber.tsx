@@ -15,13 +15,13 @@ type CardType = {
 const card: CardType[] = [
   {
     number: 3000000,
-    suffix: " tonnes",
-    description: "Déchets ménagers produits chaque année à Madagascar",
+    suffix: "tonnes",
+    description: "Déchets ménagers produits chaque année à Madagascar ",
   },
   {
     number: 68985,
-    suffix: " tonnes",
-    description: "Quantité annuelle de déchets plastiques produits.",
+    suffix: "tonnes",
+    description: "Quantité annuelle de déchets plastiques produits. ",
   },
   {
     number: 10,
@@ -30,51 +30,52 @@ const card: CardType[] = [
   },
   {
     number: 450,
-    suffix: " à 1000 ans",
-    description: "Durée de dégradation des déchets plastiques.",
+    suffix: "ans",
+    description: "Nombre de déchets collecté par Plastikôo",
   },
 ];
 
 const LIkeNumber = (props: Props) => {
-  const [inViewStates, setInViewStates] = useState<boolean[]>(new Array(card.length).fill(false));
+  const [inViewStates, setInViewStates] = useState<boolean[]>(
+    new Array(card.length).fill(false)
+  );
 
   const handleInViewChange = useCallback((inView: boolean, index: number) => {
-    setInViewStates((prev) => prev.map((state, i) => (i === index ? inView : state)));
+    setInViewStates((prev) =>
+      prev.map((state, i) => (i === index ? inView : state))
+    );
   }, []);
 
   return (
-    <div className="flex justify-center gap-7 mt-24 mb-36 relative">
-      <Image
-        src="/logotransparent.png"
-        alt="logotransparent"
-        width="300"
-        height="300"
-        className="mt-[-60px] absolute left-8 z-10"
-      />
-      {card.map((cardlist, key) => (
-        <InViewMonitor key={key} index={key} onInViewChange={handleInViewChange}>
-          {inViewStates[key] && (
-            <Reveal>
-              <div className="bg-primary hover:translate-y-3 transition duration-300 w-52 h-52 flex flex-col items-center justify-center z-30 text-white pt-5 pb-5 rounded-xl">
-                {cardlist.number === 3000000 ? (
-                  <h1 className="font-extrabold text-xl text-center pb-1"> {/* Taille ajustée pour 3,000,000 */}
-                    <CountUp start={0} end={cardlist.number} duration={4} separator="" />
+    <div className="bg-secondary flex flex-col items-center justify-center mt-4 text-center overflow-hidden px-10 py-8 sm:p-10 md:p-16 lg:p-24">
+      <div className="flex justify-center gap-7 w-[50%] relative">
+        {card.map((cardlist, key) => (
+          <InViewMonitor
+            key={key}
+            index={key}
+            onInViewChange={handleInViewChange}
+          >
+            {inViewStates[key] && (
+              <Reveal>
+                <div className=" lg:bg-primary hover:translate-y-3 transition duration-300 lg:w-48 lg:h-48 flex flex-col items-center justify-center z-30 text-white p-1 lg:p-4 rounded-3xl">
+                  <div className="lg:block flex space-x-1 items-center">
+                    <p className="lg:hidden font-extrabold">+</p>
+                    <h1 className="font-extrabold text-[20px] lg:text-[30px] ">
+                      <CountUp start={0} end={cardlist.number} duration={4} />
+                    </h1>
+                  </div>
+                  <h1 className="text-[20px] lg:text-[30px] ">
                     {cardlist.suffix}
                   </h1>
-                ) : (
-                  <h1 className="font-extrabold text-2xl text-center pb-1"> {/* Taille normale pour les autres */}
-                    <CountUp start={0} end={cardlist.number} duration={4} separator="" />
-                    {cardlist.suffix}
-                  </h1>
-                )}
-                <p className="font-semibold text-center mt-2 text-xs"> {/* Taille du texte réduite */}
-                  {cardlist.description}
-                </p>
-              </div>
-            </Reveal>
-          )}
-        </InViewMonitor>
-      ))}
+                  <p className="font-semibold lg:block hidden text-center">
+                    {cardlist.description}
+                  </p>
+                </div>
+              </Reveal>
+            )}
+          </InViewMonitor>
+        ))}
+      </div>
     </div>
   );
 };
@@ -85,7 +86,11 @@ type InViewMonitorProps = {
   children: React.ReactNode;
 };
 
-const InViewMonitor: React.FC<InViewMonitorProps> = ({ index, onInViewChange, children }) => {
+const InViewMonitor: React.FC<InViewMonitorProps> = ({
+  index,
+  onInViewChange,
+  children,
+}) => {
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: false,
