@@ -12,7 +12,7 @@ const Produit: React.FC<Props> = () => {
     <div>
       <Homepage />
       <SectionProduit />
-      <Contact />
+      {/* <Contact /> */}
     </div>
   );
 }

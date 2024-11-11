@@ -20,7 +20,7 @@ const Vision: React.FC<Props> = () => {
       <SectionVision /> 
       <SectionTransformation />  
       <SectionSensibilisation />
-      <Contact />    
+      {/* <Contact />     */}
     </div>
   );
 };

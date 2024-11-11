@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React, { useEffect } from "react";
@@ -24,7 +24,14 @@ export const Reveal: React.FC<Props> = ({ children }) => {
   }, [inView, controls]);
 
   return (
-    <div ref={ref} style={{ position: "relative", display: "flex", justifyContent: "center" }}>
+    <div
+      ref={ref}
+      style={{
+        position: "relative",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 20 },
