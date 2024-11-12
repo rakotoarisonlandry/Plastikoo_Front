@@ -38,46 +38,63 @@ const HeaderCommunity: React.FC<Props> = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const authStatus = localStorage.getItem("isAuthenticated");
-    setIsAuthenticated(authStatus === "true");
-    // If the user is authenticated, fetch their data
-    if (authStatus === "true") {
-      const fetchUserData = async () => {
-        const token = localStorage.getItem("authToken");
+    const checkAuthStatus = async () => {
+      const authStatus = localStorage.getItem("isAuthenticated");
+      setIsAuthenticated(authStatus === "true");
 
-        if (token) {
-          try {
-            const response = await fetch(`${getApiBasePath()}/utilisateur/infos`, {
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-            });
+      if (authStatus === "true") {
+        await fetchUserData();
+      }
+    };
 
-            if (response.ok) {
-              const data = await response.json(); // Parse the JSON response
-              // console.log(data[0])
-              setUser(data[0]); // Store the fetched data in the state
-            } else {
-              console.error("Error fetching user data: ", response.statusText);
-            }
-            // console.log(`${getApiBasePath()}/uploads/${user.img_profil}`)
-          } catch (error) {
-            console.error("Error occurred while fetching data: ", error);
-          }
-        } else {
-          console.error("No token found in localStorage");
+    const fetchUserData = async () => {
+      const token = localStorage.getItem("authToken");
+
+      if (!token) {
+        handleUnauthenticated();
+        return;
+      }
+
+      try {
+        const response = await fetch(`${getApiBasePath()}/utilisateur/infos`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.status === 401) {
+          // Token is expired or invalid, handle logout
+          console.warn("Token expired or invalid, redirecting to login.");
+          handleUnauthenticated();
+          return;
         }
-      };
 
-      // Call the function to fetch user data
-      fetchUserData();
-    }
-  }, []);
+        if (response.ok) {
+          const data = await response.json();
+          setUser(data[0]);
+        } else {
+          console.error("Error fetching user data:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching data:", error);
+      }
+    };
 
+    const handleUnauthenticated = () => {
+      // Log out the user and redirect to the login page
+      localStorage.removeItem("isAuthenticated");
+      localStorage.removeItem("authToken");
+      setIsAuthenticated(false);
+      router.push("/community/login");
+    };
+
+    checkAuthStatus();
+  }, [router]);
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("authToken")
     setIsAuthenticated(false);
     router.push("/community/login");
   };

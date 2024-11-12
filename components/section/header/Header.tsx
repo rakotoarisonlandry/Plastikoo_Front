@@ -25,7 +25,7 @@ function Header({}: Props) {
             <Reveal>
               <div className="flex-shrink-0 flex items-center">
                 <Link href="/" className="text-black font-bold text-lg">
-                  <Image src="/logo.png" width="170" height="170" alt="logo" />
+                  <Image src="/logo.png" width={170} height={170} alt="logo" />
                 </Link>
               </div>
             </Reveal>
