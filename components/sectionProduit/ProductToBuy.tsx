@@ -5,7 +5,6 @@ import React from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css"; // Importing styles for the slideshow
 
-
 function ProductToBuy() {
   const slideImages = [
     { url: "/slide3.png", caption: "Slide 1" },
@@ -29,7 +28,7 @@ function ProductToBuy() {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="flex items-start justify-center space-x-11 w-full p-8">
-        <div className=" w-[17.6%] h-[100%] mt-8 rounded-2xl justify-center">
+        <div className="  xl:w-[17.4%] 2xl:w-[40%] h-[100%] mt-8 rounded-2xl justify-center">
           <Slide {...properties}>
             {slideImages.map((slideImage, index) => (
               <div key={index} className="rounded-2xl">
@@ -37,7 +36,7 @@ function ProductToBuy() {
                   className="rounded-xl"
                   src={slideImage.url}
                   alt={slideImage.caption}
-                  width={5000}
+                  width={100}
                   height={12}
                   style={{ height: "460px", width: "auto", objectFit: "cover" }}
                 />
@@ -72,7 +71,7 @@ function ProductToBuy() {
           </div>
         </div>
 
-        <div className="w-[22%] p-6 rounded-lg">
+        <div className=" xl:w-[22%] 2xl:w-[50%]  p-6 rounded-lg">
           <h2 className="text-3xl font-bold mb-2 text-start">Tiny House</h2>
           <p className="text-dark w-[100%]  text-[14px] pr-20 mb-4 text-start">
             Notre tiny house est une solution d&apos;habitat innovante et
@@ -190,7 +189,10 @@ function ProductToBuy() {
               defaultValue="1"
               className="w-16 p-2 border rounded-lg mr-4"
             />
-            <Link href="/products/panier"  className="px-4 py-2 bg-green-600 text-white rounded hover:bg-primary">
+            <Link
+              href="/products/panier"
+              className="px-4 py-2 bg-green-600 text-white rounded hover:bg-primary"
+            >
               Obtenir un devis
             </Link>
           </div>
