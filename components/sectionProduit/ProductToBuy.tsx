@@ -28,12 +28,12 @@ function ProductToBuy() {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="flex items-start justify-center space-x-11 w-full p-8">
-        <div className="  xl:w-[17.4%] 2xl:w-[40%] h-[100%] mt-8 rounded-2xl justify-center">
+        <div className="  xl:w-[17.2%] 2xl:w-[38%] h-[100%] mt-8 rounded-2xl justify-center">
           <Slide {...properties}>
             {slideImages.map((slideImage, index) => (
               <div key={index} className="rounded-2xl">
                 <Image
-                  className="rounded-xl"
+                  className="rounded-2xl"
                   src={slideImage.url}
                   alt={slideImage.caption}
                   width={100}
