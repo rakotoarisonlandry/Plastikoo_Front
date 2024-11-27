@@ -132,7 +132,7 @@ const Task = () => (
           <Link href="https://expo.dev/artifacts/eas/2Sa7W3tYkDAh8nTdJLzjBh.apk">
             <button className="bg-orange flex items-center py-2 justify-start text-white px-6 md:px-8 rounded-lg hover:scale-x-105 hover:scale-y-105 transition duration-300">
               <div className="text-[15px] md:text-[14px]">
-                Telecharger l'APK Plastikôo
+                Telecharger l`&apos;`APK Plastikôo
               </div>
               <FaDownload className="text-white ml-2" />
             </button>
