@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import HeaderCommunity from "@/components/sectionCommunity/HeaderCommunity"; 
 import Accueil from "@/components/sectionCommunity/accueil";
 import SectionCommunity from "@/components/sectionCommunity/community";
+import Header from "@/components/section/header/Header";
 
 const PageCommunity: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
@@ -33,6 +33,7 @@ const PageCommunity: React.FC = () => {
 
   return (
     <div>
+      <Header />
       <Accueil />
       <SectionCommunity />
     </div>

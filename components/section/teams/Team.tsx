@@ -76,7 +76,7 @@ const Team = () => {
         </h1>
         {/* </Reveal> */}
       </div>
-      <Reveal>k
+      <Reveal>
         <h1 className="text-[40px] font-black font-montserrat text-center text-primary mb-5">
           Notre Équipe
         </h1>

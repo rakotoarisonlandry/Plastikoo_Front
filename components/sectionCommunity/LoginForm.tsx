@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState } from "react";
 
@@ -10,10 +9,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-
     if (email === "" || password === "") {
       setError("Veuillez remplir tous les champs.");
       return;

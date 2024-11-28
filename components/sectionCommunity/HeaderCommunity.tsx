@@ -3,11 +3,10 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import { Reveal } from "../utils/Reveal";
 import { FaPaperPlane } from "react-icons/fa";
-import { getApiBasePath } from '../../lib/apiConfig'
-
+import { getApiBasePath } from "../../lib/apiConfig";
 
 type Props = {};
 interface UserProfile {
@@ -26,15 +25,15 @@ const HeaderCommunity: React.FC<Props> = () => {
   const [profileExpanded, setProfileExpanded] = useState(false);
   const [user, setUser] = useState<UserProfile>({
     id: 0,
-    nom: '',
-    prenom: '',
-    email: '',
-    pseudo: '',
-    img_profil: '',
+    nom: "",
+    prenom: "",
+    email: "",
+    pseudo: "",
+    img_profil: "",
     solde: 0,
-    date_naissance: ''
+    date_naissance: "",
   });
-  
+
   const router = useRouter();
 
   useEffect(() => {
@@ -94,7 +93,7 @@ const HeaderCommunity: React.FC<Props> = () => {
   }, [router]);
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
-    localStorage.removeItem("authToken")
+    localStorage.removeItem("authToken");
     setIsAuthenticated(false);
     router.push("/community/login");
   };
@@ -105,14 +104,14 @@ const HeaderCommunity: React.FC<Props> = () => {
   };
 
   if (isAuthenticated === null) {
-    return <div>Chargement...</div>; 
+    return <div>Chargement...</div>;
   }
 
   return (
     <div className="block mb-20">
       <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 backdrop-filter backdrop-blur-lg bg-opacity-70">
         <nav className="max-w-7xl py-1.5 pt-6 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between">
             <Reveal>
               <div className="flex-shrink-0 flex items-center">
                 <Link href="/" className="text-dark font-bold text-lg">
@@ -122,19 +121,26 @@ const HeaderCommunity: React.FC<Props> = () => {
             </Reveal>
             <div className="flex-grow flex justify-center items-center">
               <Reveal>
-              <p className="text-primary text-center font-bold">
-                Votre engagement pour un avenir durable se construit ici !
-              </p>
+                <p className="text-primary text-center font-bold">
+                  Votre engagement pour un avenir durable se construit ici !
+                </p>
               </Reveal>
             </div>
-            {isAuthenticated && (
+            {isAuthenticated ? (
               <div className="flex items-center space-x-4">
-                <Link href="/community">
-                  <Button className="bg-secondary text-white hover:bg-secondary-dark transition-all duration-300">
-                    Notre communauté
-                  </Button>
-                </Link>
-                <div className="relative">
+                <div className="">
+                  <Image
+                    src={`${getApiBasePath()}/uploads/${user.img_profil}`} // Dynamically load user's profile image
+                    width={40}
+                    height={40}
+                    alt={`${user.prenom}'s profile`}
+                    className={`rounded-full h-10 w-10 cursor-pointer  transition-transform duration-300 ${
+                      profileExpanded ? "transform scale-125" : ""
+                    }`}
+                    onClick={toggleDropdown}
+                  />
+                </div>
+                <div className="rounded-full relative">
                   {/* <Image
                     src="/profil.png"
                     alt="Profile Avatar"
@@ -145,16 +151,6 @@ const HeaderCommunity: React.FC<Props> = () => {
                     }`}
                     onClick={toggleDropdown}
                   /> */}
-                  <Image 
-                    src={`${getApiBasePath()}/uploads/${user.img_profil}`}  // Dynamically load user's profile image
-                    width={40} 
-                    height={40} 
-                    alt={`${user.prenom}'s profile`}
-                    className={`rounded-full cursor-pointer transition-transform duration-300 ${
-                      profileExpanded ? "transform scale-125" : ""
-                    }`}
-                    onClick={toggleDropdown}
-                  />
                   {dropdownVisible && (
                     <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg z-10">
                       <button
@@ -168,6 +164,12 @@ const HeaderCommunity: React.FC<Props> = () => {
                   )}
                 </div>
               </div>
+            ) : (
+              <Link href="/community">
+                <Button className="bg-secondary text-white hover:bg-secondary-dark transition-all duration-300">
+                  Notre communauté
+                </Button>
+              </Link>
             )}
           </div>
         </nav>

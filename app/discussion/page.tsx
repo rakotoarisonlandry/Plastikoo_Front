@@ -2,14 +2,14 @@
 import React from "react";
 import Discussion from "@/components/sectionCommunity/Discussion";
 import Accueil from "@/components/sectionCommunity/accueil";
-import HeaderCommunity from '@/components/sectionCommunity/HeaderCommunity';
+import Header from "@/components/section/header/Header";
 
 
 
 const DiscussionPage = () => {
   return (
     <div>
-      <HeaderCommunity />
+      <Header />
       <Accueil />
       <Discussion />
     </div>
