@@ -110,10 +110,10 @@ const ProcessCard = ({ item }: { item: ProcessItem }) => (
 
 
 const Task = () => (
-  <div className="p-14 bg-gray-100">
+  <div className="p-9 md:p-14 bg-gray-100">
     <div className="flex flex-col lg:flex-row justify-start items-center lg:items-start lg:space-x-8 w-full">
       <div className="text-left px-4 md:px-12 lg:px-24 mb-8 w-full lg:w-1/2">
-        <h1 className="text-[40px] font-black font-montserrat text-primary mt-7">
+        <h1 className="ml-[0%] text-[30px] md:text-[40px] font-black font-montserrat text-primary mt-7">
           Ce que nous faisons
         </h1>
         <Reveal>
@@ -130,9 +130,9 @@ const Task = () => (
             <PiVideoFill className="text-white ml-2" />
           </button>
           <Link href="https://expo.dev/artifacts/eas/2Sa7W3tYkDAh8nTdJLzjBh.apk">
-            <button className="bg-orange flex items-center py-2 justify-start text-white px-6 md:px-8 rounded-lg hover:scale-x-105 hover:scale-y-105 transition duration-300">
+            <button className="bg-orange flex items-center py-2 justify-start text-white px-4 md:px-8 rounded-lg hover:scale-x-105 hover:scale-y-105 transition duration-300">
               <div className="text-[15px] md:text-[14px]">
-                Telecharger l`&apos;`APK Plastikôo
+                Telecharger l&apos;APK Plastikôo
               </div>
               <FaDownload className="text-white ml-2" />
             </button>
@@ -150,7 +150,7 @@ const Task = () => (
 
     <div className="justify-start">
       {/* <div className="my-4"> */}
-      <h1 className="text-primary my-6 ml-[8%] text-[40px] font-black font-montserrat">
+      <h1 className="text-primary my-6 ml-[0%] md:ml-[8%] text-[30px] md:text-[40px] font-black font-montserrat">
         Nos solutions
       </h1>
       {/* </div> */}

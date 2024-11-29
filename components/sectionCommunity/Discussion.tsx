@@ -614,7 +614,6 @@ const Discussion: React.FC = () => {
                 <p className="font-semibold">
                   {publication.utilisateur_prenom} {publication.utilisateur_nom}
                 </p>
-                <p className="text-gray-700">{publication.titre}</p>
               </div>
               <button
                 onClick={() => handleDelete(publication.publication_id)}
@@ -624,6 +623,7 @@ const Discussion: React.FC = () => {
               </button>
             </div>
             {/* <p className="mt-2 text-gray-800">{publication.contenu}</p> */}
+            <p className="text-dark font-semibold uppercase">{publication.titre}</p>
             <div
               className="mt-2 text-gray-800"
               dangerouslySetInnerHTML={{ __html: publication.contenu }}

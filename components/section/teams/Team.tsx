@@ -70,7 +70,7 @@ const Team = () => {
           </h1>
         </Reveal>
         {/* <Reveal> */}
-        <h1 className="text-white mb-6 text-[30px] font-semibold font-montserrat px-4 sm:px-10 md:px-16 lg:px-24">
+        <h1 className="text-white mb-6 text-[18px]  sm:text-[16px] md:text-[18px]  font-semibold font-montserrat px-4 sm:px-4 md:px-10 lg:px-24">
           Une planète où le plastique ne pollue plus, mais bâtit des
           possibilités infinies.
         </h1>
