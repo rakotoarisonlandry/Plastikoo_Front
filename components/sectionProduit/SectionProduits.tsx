@@ -167,7 +167,7 @@ const SectionProduit: React.FC = () => {
       <Reveal>
         <div className="bg-white py-10">
           <div className="container mx-auto px-4 text-center">
-            <p className="text-3xl font-semibold mb-4 text-primary">
+            <p className="text-xl md:text-3xl font-semibold mb-4 text-primary">
               NOS TINY CONSTRUCTIONS
             </p>
             <ProductToBuy />
