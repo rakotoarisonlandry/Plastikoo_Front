@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   FaHeart,
   FaRegHeart,
@@ -58,7 +58,7 @@ const Discussion: React.FC = () => {
 
   const getToken = () => localStorage.getItem("authToken") || "";
 
-  const fetchPublications = async () => {
+  const fetchPublications = useCallback(async () => {
     const token = getToken();
     try {
       const response = await fetch(`${getApiBasePath()}/forum/publication`, {
@@ -76,11 +76,11 @@ const Discussion: React.FC = () => {
     } catch (error) {
       console.error("Erreur lors de la requête:", error);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchPublications();
-  }, [comments, likedPublications]);
+  }, [fetchPublications, comments, likedPublications]); 
 
   const fetchComments = async (id_publication: string) => {
     const token = getToken();

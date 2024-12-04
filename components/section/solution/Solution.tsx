@@ -52,7 +52,7 @@ const Valeurs: React.FC<Props> = () => {
       <Reveal>
         <p className="text-[14px] lg:text-lg mb-24 font-bold font-montserrat text-dark mx-10 md:px-20 lg:px-44">
           Chez Plastikôo, nos valeurs sont au cœur de tout ce que nous faisons.
-          Elles reflètent notre engagement envers l'environnement et la communauté,
+          Elles reflètent notre engagement envers l&lsquo;environnement et la communauté,
           orientant chaque étape de notre mission pour un futur plus durable.
         </p>
       </Reveal>

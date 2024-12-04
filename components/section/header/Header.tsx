@@ -201,7 +201,7 @@ function MobileDrawer({
                   className="block w-full text-left px-4 py-2 text-primary hover:bg-gray-100"
                 >
                   <FaSignOutAlt className="inline-block mr-2 text-primary" />
-                  Login
+                  Se connecter
                 </button>
               </li>
             )}

@@ -12,7 +12,7 @@ const SectionVision: React.FC<Props> = () => {
         <Reveal>
           <h2 className="text-4xl font-bold text-center text-[#00D45F] mb-8">Transformation</h2>
           <p className="text-lg text-center text-gray-700 mb-12">
-            Plastiko s'engage à transformer ces déchets plastiques en matériaux de construction utiles et durables. Une fois collectés, les plastiques passent par un processus de tri et de nettoyage pour éliminer les impuretés et s'assurer la qualité des matériaux. Ces plastiques sont ensuite fondus et moulés en une variété de produits tels que des Briques, des Tuiles, des Portes et d'autres matériaux de construction écologiques. Ces produits recyclés sont conçus pour être résistants, durables et adaptés à divers projets de construction.
+            Plastiko s&lsquo;engage à transformer ces déchets plastiques en matériaux de construction utiles et durables. Une fois collectés, les plastiques passent par un processus de tri et de nettoyage pour éliminer les impuretés et s&lsquo;assurer la qualité des matériaux. Ces plastiques sont ensuite fondus et moulés en une variété de produits tels que des Briques, des Tuiles, des Portes et d&lsquo;autres matériaux de construction écologiques. Ces produits recyclés sont conçus pour être résistants, durables et adaptés à divers projets de construction.
           </p>
         </Reveal>
 
@@ -47,11 +47,11 @@ const SectionVision: React.FC<Props> = () => {
                   </li>
                   <li className="flex items-start">
                     <h4 className="text-4xl font-bold text-[#00D45F] ">03</h4>
-                    <p className="ml-4 text-lg text-black font-normal">Facilité de construction : Les produits de Plastiko sont conçus pour un assemblage simple et rapide. Leur structure modulaire facilite l'installation, réduisant le besoin en ciment et autres matériaux de liaison.</p>
+                    <p className="ml-4 text-lg text-black font-normal">Facilité de construction : Les produits de Plastiko sont conçus pour un assemblage simple et rapide. Leur structure modulaire facilite l&lsquo;installation, réduisant le besoin en ciment et autres matériaux de liaison.</p>
                   </li>
                   <li className="flex items-start">
                     <h4 className="text-4xl font-bold text-[#00D45F] ">04</h4>
-                    <p className="ml-4 text-lg text-black font-normal">Design attractif : Nos produits se distinguent par leur design moderne et innovant. Offrant une variété de couleurs et un aspect esthétique unique, ils ajoutent une touche d'élégance et de personnalité à tout projet de construction.</p>
+                    <p className="ml-4 text-lg text-black font-normal">Design attractif : Nos produits se distinguent par leur design moderne et innovant. Offrant une variété de couleurs et un aspect esthétique unique, ils ajoutent une touche d&lsquo;élégance et de personnalité à tout projet de construction.</p>
                   </li>
                 </ul>
               </div>
@@ -71,15 +71,15 @@ const SectionVision: React.FC<Props> = () => {
                 <ul className="list-none space-y-4">
                   <li className="flex items-start">
                     <h4 className="text-4xl font-bold text-[#00D45F] ">05</h4>
-                    <p className="ml-4 text-lg text-black font-normal">Écologique : Plastiko s'engage dans une démarche écologique en utilisant des plastiques recyclés. Chaque produit contribue à la réduction des déchets plastiques et à la préservation de l'environnement.</p>
+                    <p className="ml-4 text-lg text-black font-normal">Écologique : Plastiko s&lsquo;engage dans une démarche écologique en utilisant des plastiques recyclés. Chaque produit contribue à la réduction des déchets plastiques et à la préservation de l&lsquo;environnement.</p>
                   </li>
                   <li className="flex items-start">
                     <h4 className="text-4xl font-bold text-[#00D45F] ">06</h4>
-                    <p className="ml-4 text-lg text-black font-normal">Résistance à l'eau et à l'humidité : Les matériaux recyclés sont traités pour résister à l'humidité. Ils conviennent parfaitement aux environnements humides et aux conditions climatiques variées, offrant une durabilité accrue dans diverses conditions climatiques.</p>
+                    <p className="ml-4 text-lg text-black font-normal">Résistance à l&lsquo;eau et à l&lsquo;humidité : Les matériaux recyclés sont traités pour résister à l&lsquo;humidité. Ils conviennent parfaitement aux environnements humides et aux conditions climatiques variées, offrant une durabilité accrue dans diverses conditions climatiques.</p>
                   </li>
                   <li className="flex items-start">
                     <h4 className="text-4xl font-bold text-[#00D45F] ">07</h4>
-                    <p className="ml-4 text-lg text-black font-normal">Légèreté : Nos produits sont fabriqués pour être légers, ce qui facilite leur manipulation et leur transport en réduisant les coûts logistiques et simplifie l'installation.</p>
+                    <p className="ml-4 text-lg text-black font-normal">Légèreté : Nos produits sont fabriqués pour être légers, ce qui facilite leur manipulation et leur transport en réduisant les coûts logistiques et simplifie l&lsquo;installation.</p>
                   </li>
                   <li className="flex items-start">
                     <h4 className="text-4xl font-bold text-[#00D45F] ">08</h4>

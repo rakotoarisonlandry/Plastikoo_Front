@@ -1,6 +1,7 @@
 import React from "react";
 import { Reveal } from "../utils/Reveal";
 import { RevealLeft } from "../utils/RevealLeft";
+import Image from "next/image";
 
 const Sensibilisation: React.FC = () => {
   return (
@@ -9,9 +10,17 @@ const Sensibilisation: React.FC = () => {
         {/* Titre principal */}
         <Reveal>
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">Sensibilisation</h1>
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">
+              Sensibilisation
+            </h1>
             <p className="text-lg text-gray-600">
-              Chez Plastikôo, notre priorité est d’éveiller la conscience environnementale des citoyens. Grâce à notre plateforme digitale, nous sensibilisons la population à l'importance du recyclage et de la protection de l’environnement. L’application permet à chacun d'apprendre les gestes écoresponsables, de découvrir des contenus éducatifs, et de suivre ses efforts pour un avenir plus respectueux de l'environnement.
+              Chez Plastikôo, notre priorité est d&lsquo;éveiller la conscience
+              environnementale des citoyens. Grâce à notre plateforme digitale,
+              nous sensibilisons la population à l&lsquo;importance du recyclage et de
+              la protection de l&lsquo;environnement. L&lsquo;application permet à chacun
+              d&lsquo;apprendre les gestes écoresponsables, de découvrir des contenus
+              éducatifs, et de suivre ses efforts pour un avenir plus
+              respectueux de l&lsquo;environnement.
             </p>
           </div>
         </Reveal>
@@ -19,10 +28,14 @@ const Sensibilisation: React.FC = () => {
         {/* Section : Notre communauté */}
         <RevealLeft>
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-[#00D45F] mb-6">Notre communauté</h2>
+            <h2 className="text-3xl font-bold text-[#00D45F] mb-6">
+              Notre communauté
+            </h2>
             <p className="text-gray-700">
-              Nous avons créé une communauté pour partager des contenus éducatifs sur l'importance de la protection de notre environnement,
-              ainsi que des conseils pratiques pour construire des structures en plastique recyclé.
+              Nous avons créé une communauté pour partager des contenus
+              éducatifs sur l&lsquo;importance de la protection de notre
+              environnement, ainsi que des conseils pratiques pour construire
+              des structures en plastique recyclé.
             </p>
           </section>
         </RevealLeft>
@@ -33,7 +46,9 @@ const Sensibilisation: React.FC = () => {
             {/* Image alignée à gauche */}
             <RevealLeft>
               <div className="w-full flex justify-center lg:justify-start">
-                <img
+                <Image
+                  width={500}
+                  height={500}
                   src="image03.png"
                   alt="Application de récolte"
                   className="w-auto h-auto max-h-[550px] object-contain"
@@ -44,7 +59,9 @@ const Sensibilisation: React.FC = () => {
             {/* Liste des activités */}
             <Reveal>
               <div>
-                <h2 className="text-3xl font-bold text-black mb-8">Nos activités</h2>
+                <h2 className="text-3xl font-bold text-black mb-8">
+                  Nos activités
+                </h2>
                 <div className="space-y-8">
                   {[
                     {
@@ -85,9 +102,13 @@ const Sensibilisation: React.FC = () => {
                     },
                   ].map((activity, index) => (
                     <div key={index} className="flex items-start space-x-4">
-                      <div className="text-4xl font-bold text-[#00D45F]">{activity.number}</div>
+                      <div className="text-4xl font-bold text-[#00D45F]">
+                        {activity.number}
+                      </div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-800">{activity.title}</h3>
+                        <h3 className="text-xl font-bold text-gray-800">
+                          {activity.title}
+                        </h3>
                         <p className="text-gray-600">{activity.description}</p>
                       </div>
                     </div>
@@ -104,14 +125,18 @@ const Sensibilisation: React.FC = () => {
             <div className="flex flex-col items-center gap-8 md:gap-4">
               {/* Texte centré */}
               <div className="text-center mb-8">
-                <h2 className="text-xl md:text-2xl font-bold">Activités communautaires</h2>
+                <h2 className="text-xl md:text-2xl font-bold">
+                  Activités communautaires
+                </h2>
               </div>
 
               {/* Bloc des images */}
               <div className="flex flex-col md:flex-row items-center md:items-stretch gap-8">
                 {/* Bloc gauche */}
                 <div className="flex-1 rounded-lg overflow-hidden">
-                  <img
+                  <Image
+                    width={500}
+                    height={500}
                     src="/photogroupe.png"
                     alt="Photo de la communauté"
                     className="w-full h-full object-cover"
@@ -120,7 +145,9 @@ const Sensibilisation: React.FC = () => {
 
                 {/* Bloc droit */}
                 <div className="flex-1 rounded-lg overflow-hidden">
-                  <img
+                  <Image
+                    width={500}
+                    height={500}
                     src="/community.png"
                     alt="Nettoyage de la nature"
                     className="w-full h-full object-cover"
