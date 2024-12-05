@@ -1,5 +1,5 @@
 import Header from '@/components/section/header/Header';
-import PlastikooEduc from '@/components/sectionCommunity/PlastikooEduc';
+// import PlastikooEduc from '@/components/sectionCommunity/PlastikooEduc';
 import Accueil from "@/components/sectionCommunity/accueil"; 
 
 const CommunityPage = () => {
@@ -7,7 +7,7 @@ const CommunityPage = () => {
         <div>
             <Header />
             <Accueil />
-            <PlastikooEduc />
+            {/* <PlastikooEduc /> */}
         </div>
     );
 };
