@@ -1,6 +1,7 @@
 import React from "react";
 import { Reveal } from "../../utils/Reveal";
 import { RevealLeft } from "../../utils/RevealLeft";
+import Image from "next/image";
 
 const Solutions: React.FC = () => {
   const items = [
@@ -63,7 +64,7 @@ const Solutions: React.FC = () => {
             {/* Image section juste au-dessus du bouton */}
             <RevealLeft>
               <div className="mt-1 flex items-center justify-center"> {/* Réduction de la marge pour rapprocher l'image */}
-                <img src={item.image} alt={item.title} className="w-24 h-24 object-contain opacity-85" />
+                <Image width={100} height={100} src={item.image} alt={item.title} className="w-24 h-24 object-contain opacity-85" />
               </div>
             </RevealLeft>
             {/* Bouton Découvrir directement sous l'image, avec une marge réduite */}

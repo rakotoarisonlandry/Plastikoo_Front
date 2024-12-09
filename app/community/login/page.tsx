@@ -47,7 +47,7 @@ const Login: React.FC = () => {
         if (data.token) {
           localStorage.setItem("isAuthenticated", "true");
           localStorage.setItem("authToken", data.token); // Enregistrez le token
-          router.push("/community");
+          router.push("/discussion");
         } else {
           const error = data.error
           console.log(error)

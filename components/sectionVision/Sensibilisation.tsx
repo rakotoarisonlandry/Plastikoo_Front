@@ -1,6 +1,7 @@
 import React from "react";
 import { Reveal } from "../utils/Reveal";
 import { RevealLeft } from "../utils/RevealLeft";
+import Image from "next/image";
 
 const Sensibilisation: React.FC = () => {
   return (
@@ -33,7 +34,9 @@ const Sensibilisation: React.FC = () => {
             {/* Image alignée à gauche */}
             <RevealLeft>
               <div className="w-full flex justify-center lg:justify-start">
-                <img
+                <Image
+                  width={500}
+                  height={500}
                   src="image03.png"
                   alt="Application de récolte"
                   className="w-auto h-auto max-h-[550px] object-contain"
@@ -85,7 +88,9 @@ const Sensibilisation: React.FC = () => {
                     },
                   ].map((activity, index) => (
                     <div key={index} className="flex items-start space-x-4">
-                      <div className="text-4xl font-bold text-[#00D45F]">{activity.number}</div>
+                      <div className="text-4xl font-bold text-[#00D45F]">
+                        {activity.number}
+                      </div>
                       <div>
                         <h3 className="text-xl font-bold text-dark">{activity.title}</h3>
                         <p className="text-dark">{activity.description}</p>
@@ -104,14 +109,18 @@ const Sensibilisation: React.FC = () => {
             <div className="flex flex-col items-center gap-8 md:gap-4">
               {/* Texte centré */}
               <div className="text-center mb-8">
-                <h2 className="text-xl md:text-2xl font-bold">Activités communautaires</h2>
+                <h2 className="text-xl md:text-2xl font-bold">
+                  Activités communautaires
+                </h2>
               </div>
 
               {/* Bloc des images */}
               <div className="flex flex-col md:flex-row items-center md:items-stretch gap-8">
                 {/* Bloc gauche */}
                 <div className="flex-1 rounded-lg overflow-hidden">
-                  <img
+                  <Image
+                    width={500}
+                    height={500}
                     src="/photogroupe.png"
                     alt="Photo de la communauté"
                     className="w-full h-full object-cover"
@@ -120,7 +129,9 @@ const Sensibilisation: React.FC = () => {
 
                 {/* Bloc droit */}
                 <div className="flex-1 rounded-lg overflow-hidden">
-                  <img
+                  <Image
+                    width={500}
+                    height={500}
                     src="/community.png"
                     alt="Nettoyage de la nature"
                     className="w-full h-full object-cover"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   FaHeart,
   FaRegHeart,
@@ -34,7 +34,9 @@ interface Commentaire {
   commentaire_date_creation: string;
   commentaire_parent_id?: number;
   publication_id: number;
+  img_utilisateur?: string;
   avatar_url?: string;
+  pseudo_utilisateur?: string;
   replies?: Commentaire[];
 }
 
@@ -56,7 +58,7 @@ const Discussion: React.FC = () => {
 
   const getToken = () => localStorage.getItem("authToken") || "";
 
-  const fetchPublications = async () => {
+  const fetchPublications = useCallback(async () => {
     const token = getToken();
     try {
       const response = await fetch(`${getApiBasePath()}/forum/publication`, {
@@ -74,11 +76,11 @@ const Discussion: React.FC = () => {
     } catch (error) {
       console.error("Erreur lors de la requête:", error);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchPublications();
-  }, [comments, likedPublications]);
+  }, [fetchPublications, comments, likedPublications]); 
 
   const fetchComments = async (id_publication: string) => {
     const token = getToken();
@@ -623,7 +625,9 @@ const Discussion: React.FC = () => {
               </button>
             </div>
             {/* <p className="mt-2 text-gray-800">{publication.contenu}</p> */}
-            <p className="text-dark font-semibold uppercase">{publication.titre}</p>
+            <p className="text-dark font-semibold uppercase">
+              {publication.titre}
+            </p>
             <div
               className="mt-2 text-gray-800"
               dangerouslySetInnerHTML={{ __html: publication.contenu }}
@@ -661,7 +665,6 @@ const Discussion: React.FC = () => {
               </button>
             </div>
 
-            {/* Bloc pour les commentaires */}
             {comments[publication.publication_id] && (
               <div className="mt-4 bg-white bg-opacity-70 p-4 rounded-lg">
                 <div className="mb-4 flex">
@@ -692,15 +695,17 @@ const Discussion: React.FC = () => {
                     className="border-t border-gray-200 pt-4 flex items-start"
                   >
                     <Image
-                      src={comment.avatar_url || "/VANESSA.png"}
+                      src={`${getApiBasePath()}/uploads/${
+                        comment.img_utilisateur
+                      }`}
                       alt={`Utilisateur ${comment.commentaire_id}`}
                       width={40}
                       height={40}
-                      className="rounded-full object-cover mr-2"
+                      className="rounded-full h-10 W-10 object-cover mr-2"
                     />
                     <div className="flex-1">
-                      <p className="font-semibold">
-                        Utilisateur {comment.commentaire_id}
+                      <p className="text-dark font-semibold">
+                        @{comment.pseudo_utilisateur}
                       </p>
                       <p>{comment.commentaire_contenu}</p>
                       <div className="mt-4 flex items-center">
@@ -725,7 +730,9 @@ const Discussion: React.FC = () => {
                                 className="border-t border-gray-200 pt-2 ml-4 flex items-start"
                               >
                                 <Image
-                                  src={reply.avatar_url || "/LANDRY.png"}
+                                  src={`${getApiBasePath()}/uploads/${
+                                    reply.img_utilisateur
+                                  }`}
                                   alt={`Utilisateur ${reply.commentaire_id}`}
                                   width={40}
                                   height={40}
@@ -733,7 +740,7 @@ const Discussion: React.FC = () => {
                                 />
                                 <div className="flex-1">
                                   <p className="font-semibold">
-                                    Utilisateur {reply.commentaire_id}
+                                    @{reply.pseudo_utilisateur}
                                   </p>
                                   <p>{reply.commentaire_contenu}</p>
                                 </div>
