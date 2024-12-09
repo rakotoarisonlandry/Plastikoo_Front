@@ -65,19 +65,40 @@ const Team = () => {
     <div className="">
       <div className="bg-primary  mb-10 flex flex-col items-center justify-center text-center overflow-hidden h-auto px-10 py-8 sm:p-10 md:p-16 lg:p-24">
         <Reveal>
-          <h1 className="text-[40px] font-black font-montserrat text-white mb-5">
+          <h1 
+            className="text-[40px] font-black font-montserrat text-white mb-5"
+            style= {{
+              fontFamily:"Montserrat",
+              fontWeight: 900,
+              fontSize:40
+            }}
+          >
             Notre vision
           </h1>
         </Reveal>
         {/* <Reveal> */}
-        <h1 className="text-white mb-6 text-[18px]  sm:text-[16px] md:text-[18px]  font-semibold font-montserrat px-4 sm:px-4 md:px-10 lg:px-24">
-          Une planète où le plastique ne pollue plus, mais bâtit des
+        <h1 
+          className="text-white mb-6 text-[18px]  sm:text-[16px] md:text-[18px]  font-semibold font-montserrat px-4 sm:px-4 md:px-10 lg:px-24"
+          style= {{
+            fontFamily:"Montserrat",
+            fontWeight: 600,
+            fontSize:40
+          }}
+        >
+          Une planète où le plastique ne pollue <br/>plus, mais bâtit des
           possibilités infinies.
         </h1>
         {/* </Reveal> */}
       </div>
       <Reveal>
-        <h1 className="text-[40px] font-black font-montserrat text-center text-primary mb-5">
+        <h1 
+          className="text-[40px] font-dark font-montserrat text-center text-primary mb-5"
+          style= {{
+            fontFamily:"Montserrat",
+            fontWeight: 900,
+            fontSize:40
+          }}
+        >
           Notre Équipe
         </h1>
       </Reveal>
@@ -98,10 +119,23 @@ const Team = () => {
                 className="w-full h-full"
               />
             </div>
-            <h2 className="mt-1 lg:mt-4 text-[16px] lg:text-lg font-bold">
+            <h2 
+              className="mt-1 lg:mt-4 text-[16px] lg:text-lg font-bold"
+              style= {{
+                fontFamily:"Montserrat",
+                fontWeight: 600,
+                fontSize:14
+              }}
+            >
               {member.name}
             </h2>
-            <p className="text-gray-700 text-[12px] lg:text-[20px]">
+            <p 
+              className="text-gray-700 text-[12px] lg:text-[20px]"
+              style= {{
+                fontFamily:"Coolvetica",
+                fontSize:24
+              }}
+            >
               {member.role}
             </p>
           </div>

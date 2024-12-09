@@ -30,7 +30,14 @@ const Partner = ({}: Props) => {
     <div className=" mb-32">
       <div className="bg-primary h-2 w-[10%] mx-auto" />
       <div className="bg-secondary w-full mb-20">
-        <h1 className="ml-[15%] text-[28px] pt-5 pb-5 lg:pb-0 lg:text-[40px] lg:pt-11 text-white font-black">
+        <h1 
+          className="ml-[15%] text-[28px] pt-5 pb-5 lg:pb-0 lg:text-[40px] lg:pt-11 text-white font-black"
+          style= {{
+            fontFamily:"Montserrat",
+            fontWeight: 900,
+            fontSize:40
+          }}  
+        >
           Nos contributions ODD
         </h1>
         <div className="bg-secondary w-full flex flex-col items-center justify-center text-center overflow-hidde px-10 sm:p-10 md:p-16 lg:p-24">
@@ -42,7 +49,14 @@ const Partner = ({}: Props) => {
         </div>
       </div>
 
-      <h2 className="text-center  mb-10 lg:mb-0 text-3xl font-bold text-secondary ">
+      <h2 
+        className="text-center  mb-10 lg:mb-0 text-3xl font-bold text-secondary"
+        style= {{
+          fontFamily:"Montserrat",
+          fontWeight: 900,
+          fontSize:40
+        }}
+      >
         Nos Partenaires
       </h2>
       <Marquee

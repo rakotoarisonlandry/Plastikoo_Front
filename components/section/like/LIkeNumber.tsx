@@ -8,6 +8,7 @@ type Props = {};
 
 type CardType = {
   number: number;
+  stats: string;
   suffix: string;
   description: string;
 };
@@ -15,21 +16,25 @@ type CardType = {
 const card: CardType[] = [
   {
     number: 3000000,
+    stats: "3 000 000",
     suffix: "tonnes",
     description: "Déchets ménagers produits chaque année à Madagascar",
   },
   {
     number: 68985,
+    stats: "68 985",
     suffix: "tonnes",
     description: "Quantité annuelle de déchets plastiques produits.",
   },
   {
     number: 10,
+    stats: "10%",
     suffix: " %",
     description: "Pourcentage de déchets plastiques recyclables",
   },
   {
     number: 450,
+    stats: "450 à 1000 ans",
     suffix: "ans",
     description: "Année de décomposition",
   },
@@ -48,7 +53,7 @@ const LIkeNumber = (props: Props) => {
 
   return (
     <div className="bg-secondary flex flex-col items-center justify-center mt-4 text-center overflow-hidden px-14 py-8 sm:p-10 md:p-16 lg:p-24">
-      <div className="flex justify-center gap-7 w-[50%] relative">
+      <div className="flex justify-center gap-7 w-[100%] relative">
         {card.map((cardlist, key) => (
           <InViewMonitor
             key={key}
@@ -57,17 +62,34 @@ const LIkeNumber = (props: Props) => {
           >
             {inViewStates[key] && (
               <Reveal>
-                <div className=" lg:bg-primary hover:translate-y-3 transition duration-300 lg:w-48 lg:h-100 flex flex-col items-center justify-center z-50 text-white p-1 lg:p-4 rounded-3xl">
+                <div className=" lg:bg-primary hover:translate-y-3 transition duration-300 lg:w-64 lg:h-100 flex flex-col items-center justify-between z-50 text-white p-1 lg:p-4 rounded-3xl">
                   <div className="lg:block flex space-x-1 items-center">
                     <p className="lg:hidden font-extrabold">+</p>
-                    <h1 className="font-extrabold text-[10px] lg:text-[25px] ">
-                      <CountUp start={0} end={cardlist.number} duration={4} />
+                    <h1 
+                      className="font-extrabold text-[10px] lg:text-[25px] "
+                      style={
+                        { 
+                          fontFamily: 'Montserrat',
+                          fontWeight: 900,
+                          fontSize:30,
+                          minHeight: "40px"
+                        }
+                      }
+                    >
+                      {cardlist.stats}
+                      {/* <CountUp start={0} end={cardlist.number} duration={4} /> */}
                     </h1>
                   </div>
-                  <h1 className="text-[15px] lg:text-[30px] ">
-                    {cardlist.suffix}
+                  <h1 
+                    className="text-[15px] lg:text-[30px] "
+                    style={{ fontFamily: 'Montserrat', fontWeight: 500, fontSize:30 }}
+                  >
+                    {/* {cardlist.suffix} */}
                   </h1>
-                  <p className="font-semibold text-[1px] lg:text-[15px] lg:block hidden text-center font-montserrat">
+                  <p
+                    className="font-semibold text-[1px] lg:text-[15px] lg:block hidden text-center font-montserrat"
+                    style={{ fontFamily: 'Montserrat', fontWeight: 600, fontSize:20 }}
+                  >
                     {cardlist.description}
                   </p>
                 </div>

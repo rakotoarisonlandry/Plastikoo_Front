@@ -16,14 +16,43 @@ const Contact = (props: Props) => {
         />
 
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-start justify-center text-white p-6 lg:p-14">
-          <h1 className="text-2xl lg:text-4xl font-semibold mb-4">
+          <h1 
+            className="text-2xl lg:text-4xl font-semibold mb-4"
+            style= {{
+              fontFamily:"Montserrat",
+              fontWeight: 600,
+              fontSize:40
+            }}
+          >
             Ensemble, nous pourrons bâtir un avenir propre et durable.
           </h1>
-          <p className="text-sm lg:text-lg mb-4 space-y-0 text-[13px]">
+
+          <h2 
+            style= {{
+              fontFamily:"Montserrat",
+              fontWeight: 900,
+              fontSize:32
+            }}
+          >Vous voulez rejoindre notre communauté?</h2>
+          <p 
+            className="text-sm lg:text-lg mb-4 space-y-0 text-[13px]"
+            style= {{
+              fontFamily:"Montserrat",
+              fontWeight: 500,
+              fontSize:14
+            }}
+          >
             Votre contribution fait la différence. Rejoignez notre communauté et
             offrons un avenir meilleur pour les générations futures.
           </p>
-          <button className="bg-primary hover:scale-105 duration-300 transition text-white px-4 lg:px-6 py-2 rounded-lg">
+          <button 
+            className="bg-primary hover:scale-105 duration-300 transition text-white px-4 lg:px-6 py-2 rounded-lg"
+            style= {{
+              fontFamily:"Montserrat",
+              fontWeight: "bold",
+              fontSize:14
+            }}
+          >
             Rejoignez-nous
           </button>
         </div>
@@ -32,10 +61,24 @@ const Contact = (props: Props) => {
       {/* Contact Form Section */}
       <div className="w-full lg:w-1/2 bg-secondary p-8 flex flex-col justify-center items-center">
         <div className="pl-4 lg:pl-28 pr-4 lg:pr-7">
-          <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-white">
+          <h2 
+            className="text-2xl lg:text-3xl font-bold mb-6 text-white"
+            style= {{
+              fontFamily:"Montserrat",
+              fontWeight: 600,
+              fontSize:40
+            }}
+          >
             Contactez-nous
           </h2>
-          <p className="text-sm lg:text-[14px] mb-8 text-white">
+          <p 
+            className="text-sm lg:text-[14px] mb-8 text-white"
+            style= {{
+              fontFamily:"Montserrat",
+              fontWeight: 500,
+              fontSize: 14
+            }}
+          >
             Nous serions ravis de vous entendre ! Que vous souhaitiez rejoindre
             notre initiative, devenir notre partenaire ou en savoir plus sur nos
             produits, votre message est important pour nous. Remplissez le
