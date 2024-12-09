@@ -4,14 +4,14 @@ import { RevealLeft } from "../utils/RevealLeft";
 
 const Sensibilisation: React.FC = () => {
   return (
-    <div className="bg-gray-900 py-12 px-6">
+    <div className="bg-dark py-12 px-6">
       <div className="max-w-6xl mx-auto bg-white rounded-lg p-8">
         {/* Titre principal */}
         <Reveal>
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">Sensibilisation</h1>
-            <p className="text-lg text-gray-600">
-              Chez Plastikôo, notre priorité est d’éveiller la conscience environnementale des citoyens. Grâce à notre plateforme digitale, nous sensibilisons la population à l'importance du recyclage et de la protection de l’environnement. L’application permet à chacun d'apprendre les gestes écoresponsables, de découvrir des contenus éducatifs, et de suivre ses efforts pour un avenir plus respectueux de l'environnement.
+            <h1 className="text-4xl font-bold text-dark mb-4">Sensibilisation</h1>
+            <p className="text-lg text-dark">
+              Chez Plastikôo, notre priorité est d’éveiller la conscience environnementale des citoyens. Grâce à notre plateforme digitale, nous sensibilisons la population à l&apos;mportance du recyclage et de la protection de l&apos;environnement. L&apos;application permet à chacun d&apos;apprendre les gestes écoresponsables, de découvrir des contenus éducatifs, et de suivre ses efforts pour un avenir plus respectueux de l&apos;environnement.
             </p>
           </div>
         </Reveal>
@@ -20,8 +20,8 @@ const Sensibilisation: React.FC = () => {
         <RevealLeft>
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-[#00D45F] mb-6">Notre communauté</h2>
-            <p className="text-gray-700">
-              Nous avons créé une communauté pour partager des contenus éducatifs sur l'importance de la protection de notre environnement,
+            <p className="text-dark">
+              Nous avons créé une communauté pour partager des contenus éducatifs sur l&apos;importance de la protection de notre environnement,
               ainsi que des conseils pratiques pour construire des structures en plastique recyclé.
             </p>
           </section>
@@ -44,7 +44,7 @@ const Sensibilisation: React.FC = () => {
             {/* Liste des activités */}
             <Reveal>
               <div>
-                <h2 className="text-3xl font-bold text-black mb-8">Nos activités</h2>
+                <h2 className="text-3xl font-bold text-dark mb-8">Nos activités</h2>
                 <div className="space-y-8">
                   {[
                     {
@@ -87,8 +87,8 @@ const Sensibilisation: React.FC = () => {
                     <div key={index} className="flex items-start space-x-4">
                       <div className="text-4xl font-bold text-[#00D45F]">{activity.number}</div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-800">{activity.title}</h3>
-                        <p className="text-gray-600">{activity.description}</p>
+                        <h3 className="text-xl font-bold text-dark">{activity.title}</h3>
+                        <p className="text-dark">{activity.description}</p>
                       </div>
                     </div>
                   ))}
