@@ -34,8 +34,7 @@ const Partner = ({}: Props) => {
           className="ml-[15%] text-[28px] pt-5 pb-5 lg:pb-0 lg:text-[40px] lg:pt-11 text-white font-black"
           style= {{
             fontFamily:"Montserrat",
-            fontWeight: 900,
-            fontSize:40
+            fontWeight: 900
           }}  
         >
           Nos contributions ODD

@@ -6,6 +6,7 @@ import { Reveal } from "@/components/utils/Reveal";
 import { RevealLeft } from "@/components/utils/RevealLeft";
 import Image from "next/image";
 import { getApiBasePath } from '../../../lib/apiConfig'
+import Link from "next/link";
 
 console.log(getApiBasePath())
 
@@ -76,7 +77,8 @@ const Login: React.FC = () => {
         <div className="relative flex flex-col justify-center w-full md:w-1/2 p-8 bg-white">
           <div className="absolute top-4 left-4">
             {/* <img src="/logo.png" alt="Logo" className="w-32 h-auto" /> */}
-            <Image src="/logo.png" alt="Logo" width={128} height={64} />
+            <Link href="/"><Image src="/logo.png" alt="Logo" width={128} height={64} /></Link>
+            
           </div>
 
           <div className="flex flex-col justify-center items-center w-full max-w-md mx-auto mt-16">

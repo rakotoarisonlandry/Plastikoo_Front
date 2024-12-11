@@ -12,22 +12,20 @@ const SectionProduit: React.FC = () => {
         <div className="bg-white py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 
-              className=" text-[25px] lg:text-4xl  mb-2 text-orange font-black lg:mb-4 text-red"
+              className=" text-[28px] sm:text-[30px] lg:text-[40px] lg:text-4xl  mb-2 text-orange font-black lg:mb-4 text-red"
               style={
                 {
                   fontFamily:"Montserrat",
-                  fontWeight:900,
-                  fontSize: 40
+                  fontWeight:900
                 }
               }>
               Découvrez nos Tiny constructions
             </h2>
-            <p className="text-[20px] lg:text-4xl font-semibold mb-5 lg:mb-12 text-secondary"
+            <p className="text-[28px] sm:text-[30px] lg:text-[40px] lg:text-4xl font-semibold mb-5 lg:mb-12 text-secondary"
               style={
                 {
                   fontFamily:"Montserrat",
-                  fontWeight:500,
-                  fontSize: 40
+                  fontWeight:500
                 }
               }
             >
@@ -209,21 +207,19 @@ const SectionProduit: React.FC = () => {
         <div className="bg-white lg:py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 
-              className="text-[25px] lg:text-4xl  mb-2 text-orange font-black lg:mb-4 text-red"
+              className="text-[28px] sm:text-[30px] lg:text-[40px] lg:text-4xl  mb-2 text-orange font-black lg:mb-4 text-red"
               style= {{
                 fontFamily:"Montserrat",
                 fontWeight: 900,
-                fontSize:40
               }}
             >
               Découvrez nos produits
             </h2>
             <p 
-              className="text-3xl mb-10 text-primary"
+              className="text-[28px] sm:text-[30px] lg:text-[40px] text-3xl mb-10 text-primary"
               style= {{
                 fontFamily:"Montserrat",
-                fontWeight: 5000,
-                fontSize:40
+                fontWeight: 5000
               }}
             >
               100% plastiques recyclés

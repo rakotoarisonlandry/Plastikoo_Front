@@ -102,6 +102,13 @@ body{
   font-weight: bold;
   font-style: normal;
 }
+/* Montserra extraBold */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat Extra Bold.otf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
 
 /* Montserrat coolvetica*/
 @font-face {

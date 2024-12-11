@@ -164,88 +164,88 @@ function Binding({}: Props) {
           </h1>
         </Reveal>
         <div className="grid grid-cols-2 w-[100%]  lg:w-[64%] lg:h-[64%] lg:ml-[20%] mt-auto md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {items.map((item) => (
-          <Reveal key={item.id}>
-            <div
-              onClick={() => handleCardClick(item.id)}
-              className={`p-7 w-[220px] h-[250px] lg:w-[360px] lg:h-[300px] lg:flex lg:flex-col lg:justify-start lg:items-start cursor-pointer transition-all duration-300 ${
-                selectedId === item.id
-                  ? `bg-green-500 text-white rounded-xl transform ${
-                      item.id === 1
-                        ? "translate-x-0 translate-y-[-15px] sm:translate-x-[5px] sm:translate-y-[5px] md:translate-x-[-10px] lg:translate-x-[-15px] lg:translate-y-[-15px]"
-                        : item.id === 2
-                        ? "translate-x-0 translate-y-[-15px] sm:translate-y-[-5px] md:translate-y-[-10px] lg:translate-y-[-15px]"
-                        : item.id === 3
-                        ? "translate-x-0 sm:translate-x-[10px] md:translate-x-[5px] lg:translate-x-[15px] lg:translate-y-[-15px]"
-                        : item.id === 4
-                        ? "translate-x-[0px] sm:translate-x-[-5px] md:translate-x-[-10px] lg:translate-x-[-15px] lg:translate-y-[15px]"
-                        : item.id === 5
-                        ? "translate-x-0 sm:translate-y-[5px] md:translate-y-[10px] lg:translate-y-[15px]"
-                        : "translate-x-[0px] sm:translate-x-[10px] md:translate-x-[5px] lg:translate-x-[15px] lg:translate-y-[15px]"
-                    }`
-                  : "bg-blue-500 text-white"
-              } ${
-                item.id === 1
-                  ? "rounded-tl-xl"
-                  : item.id === 3
-                  ? "lg:rounded-tr-xl"
-                  : item.id === 4
-                  ? "lg:rounded-bl-xl"
-                  : item.id === 2
-                  ? "lg:rounded-bl-xl rounded-tr-xl"
-                  : item.id === 5
-                  ? "lg:rounded-bl-xl rounded-bl-xl"
-                  : item.id === 6
-                  ? "rounded-br-xl"
-                  : ""
-              }`}
-            >
-              <h2
-                className={`transition-all duration-300 ease-in-out ${
+          {items.map((item) => (
+            <Reveal key={item.id}>
+              <div
+                onClick={() => handleCardClick(item.id)}
+                className={`p-7 w-[220px] h-[250px] lg:w-[280px] lg:h-[420px] lg:flex lg:flex-col lg:justify-start lg:items-start cursor-pointer transition-all duration-300 ${
                   selectedId === item.id
-                    ? "text-4xl lg:text-3xl font-extrabold mb-2"
-                    : "text-5xl lg:text-4xl font-bold mb-4"
+                    ? `bg-green-500 text-white rounded-xl transform ${
+                        item.id === 1
+                          ? "translate-x-0 translate-y-[-15px] sm:translate-x-[5px] sm:translate-y-[5px] md:translate-x-[-10px] lg:translate-x-[-15px] lg:translate-y-[-15px]"
+                          : item.id === 2
+                          ? "translate-x-0 translate-y-[-15px] sm:translate-y-[-5px] md:translate-y-[-10px] lg:translate-y-[-15px]"
+                          : item.id === 3
+                          ? "translate-x-0 sm:translate-x-[10px] md:translate-x-[5px] lg:translate-x-[15px] lg:translate-y-[-15px]"
+                          : item.id === 4
+                          ? "translate-x-[0px] sm:translate-x-[-5px] md:translate-x-[-10px] lg:translate-x-[-15px] lg:translate-y-[15px]"
+                          : item.id === 5
+                          ? "translate-x-0 sm:translate-y-[5px] md:translate-y-[10px] lg:translate-y-[15px]"
+                          : "translate-x-[0px] sm:translate-x-[10px] md:translate-x-[5px] lg:translate-x-[15px] lg:translate-y-[15px]"
+                      }`
+                    : "bg-blue-500 text-white"
+                } ${
+                  item.id === 1
+                    ? "rounded-tl-xl"
+                    : item.id === 3
+                    ? "lg:rounded-tr-xl"
+                    : item.id === 4
+                    ? "lg:rounded-bl-xl"
+                    : item.id === 2
+                    ? "lg:rounded-bl-xl rounded-tr-xl"
+                    : item.id === 5
+                    ? "lg:rounded-bl-xl rounded-bl-xl"
+                    : item.id === 6
+                    ? "rounded-br-xl"
+                    : ""
                 }`}
-                style={{ fontFamily: 'Coolvetica', fontWeight: 400, fontSize: 64 }}
               >
-                {item.title}
-              </h2>
-              <p
-                className={`transition-all duration-300 ease-in-out ${
-                  selectedId === item.id
-                    ? "text-xl lg:text-[15px] font-extrabold mb-4"
-                    : "text-[15px] font-bold mb-4"
-                }`}
-                style={{
-                  fontFamily: 'Montserrat',
-                  fontWeight: 900,
-                  fontSize: 22,
-                  marginBottom: "10px", // Assurez un espacement constant
-                }}
-              >
-                {item.content}
-              </p>
-            
-              {selectedId === item.id && (
+                <h2
+                  className={`transition-all duration-300 ease-in-out ${
+                    selectedId === item.id
+                      ? "text-4xl lg:text-3xl font-extrabold mb-2"
+                      : "text-5xl lg:text-4xl font-bold mb-4"
+                  }`}
+                  style={{ fontFamily: 'Coolvetica', fontWeight: 400, fontSize: 64 }}
+                >
+                  {item.title}
+                </h2>
                 <p
-                  className="text-[14px] lg:text-[12px]  mt-4"
+                  className={`transition-all duration-300 ease-in-out ${
+                    selectedId === item.id
+                      ? "text-xl lg:text-[15px] font-extrabold mb-4"
+                      : "text-[15px] font-bold mb-4"
+                  }`}
                   style={{
                     fontFamily: 'Montserrat',
-                    fontWeight: 600,
-                    fontSize: 14,
-                    wordWrap: "break-word", // Gère le débordement du contenu
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
+                    fontWeight: 900,
+                    fontSize: 22,
+                    marginBottom: "10px", // Assurez un espacement constant
                   }}
                 >
-                  {item.description}
+                  {item.content}
                 </p>
-              )}
-            </div>
-  
-          </Reveal>
-        ))}
-      </div>
+              
+                {selectedId === item.id && (
+                  <p
+                    className="text-[14px] lg:text-[12px]  mt-4"
+                    style={{
+                      fontFamily: 'Montserrat',
+                      fontWeight: 600,
+                      fontSize: 14,
+                      wordWrap: "break-word", // Gère le débordement du contenu
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    {item.description}
+                  </p>
+                )}
+              </div>
+    
+            </Reveal>
+          ))}
+        </div>
       </div>
 
       {/* Section pour mobiles et tablettes */}

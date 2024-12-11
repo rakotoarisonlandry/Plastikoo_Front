@@ -62,18 +62,24 @@ const Valeurs: React.FC<Props> = () => {
     <div className=" py-10 text-justify lg:text-center bg-white text-black">
       {/* Titre principal */}
       <Reveal>
-        <h2 
+      <h2 
+        className="text-[28px] sm:text-[30px] lg:text-[40px] font-dark font-montserrat text-primary mb-8"
+        style={{ fontFamily: 'Montserrat', fontWeight: 900 }}
+      >
+        Nos valeurs
+      </h2>
+        {/* <h2 
           className="text-[40px] font-black font-montserrat text-primary mb-8"
           style={{ fontFamily: 'Montserrat', fontWeight: 900, fontSize: 40 }}
         >
           Nos valeurs
-        </h2>
+        </h2> */}
       </Reveal>
+
       {/* Description */}
       <Reveal>
         <p 
           className="text-[14px] lg:text-lg mb-24 font-bold font-montserrat text-dark mx-10 md:px-20 lg:px-44"
-          
         >
           Chez Plastikôo, nos valeurs sont au cœur de tout ce que nous faisons.
           Elles reflètent notre engagement envers l&apos;environnement et la communauté,
@@ -81,27 +87,27 @@ const Valeurs: React.FC<Props> = () => {
         </p>
       </Reveal>
 
-
-      {/* Grille des valeurs */}
-      <div className="grid grid-cols-3 gap-x-16 px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:px-60 px-6 mx-auto">
         {valeurs.map((valeur, index) => (
           <RevealLeft key={index}>
-      <div
-        className={`flex flex-col items-center text-center`}
-        style={{
-          marginLeft: index === 0 ? '250%' : index === 2 ? '-600%' : '0', // Décalage léger
-        }}
-      >
-              <div className="text-primary text-[45px] lg:text-[90px] mb-4">
+            <div
+              className={`flex flex-col items-center text-center`}
+              style={{
+                marginLeft: index === 0 ? '0%' : index === 2 ? '-0%' : '0', // Ajuste les marges
+              }}
+            >
+              <div className="text-primary text-[45px] sm:text-[60px] md:text-[80px] lg:text-[90px] mb-4">
                 {valeur.icon}
               </div>
-              <h3 className="font-bold text-[14px] lg:text-[20px] text-dark">
+              <h3 className="font-bold text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-dark">
                 {valeur.title}
               </h3>
             </div>
           </RevealLeft>
         ))}
       </div>
+
+
     </div>
   );
 };

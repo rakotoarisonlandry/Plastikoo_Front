@@ -66,11 +66,10 @@ const Team = () => {
       <div className="bg-primary  mb-10 flex flex-col items-center justify-center text-center overflow-hidden h-auto px-10 py-8 sm:p-10 md:p-16 lg:p-24">
         <Reveal>
           <h1 
-            className="text-[40px] font-black font-montserrat text-white mb-5"
+            className="text-[28px] sm:text-[30px] lg:text-[40pxfont-black font-montserrat text-white mb-5"
             style= {{
               fontFamily:"Montserrat",
-              fontWeight: 900,
-              fontSize:40
+              fontWeight: 900
             }}
           >
             Notre vision
@@ -78,11 +77,10 @@ const Team = () => {
         </Reveal>
         {/* <Reveal> */}
         <h1 
-          className="text-white mb-6 text-[18px]  sm:text-[16px] md:text-[18px]  font-semibold font-montserrat px-4 sm:px-4 md:px-10 lg:px-24"
+          className="text-white mb-6 text-[28 px]  sm:text-[30px] lg:text-[40px]  font-semibold font-montserrat px-4 sm:px-4 md:px-10 lg:px-24"
           style= {{
             fontFamily:"Montserrat",
-            fontWeight: 600,
-            fontSize:40
+            fontWeight: 600
           }}
         >
           Une planète où le plastique ne pollue <br/>plus, mais bâtit des
@@ -92,11 +90,10 @@ const Team = () => {
       </div>
       <Reveal>
         <h1 
-          className="text-[40px] font-dark font-montserrat text-center text-primary mb-5"
+          className="text-[28px] sm:text-[30px] lg:text-[40px font-dark font-montserrat text-center text-primary mb-5"
           style= {{
             fontFamily:"Montserrat",
-            fontWeight: 900,
-            fontSize:40
+            fontWeight: 900
           }}
         >
           Notre Équipe

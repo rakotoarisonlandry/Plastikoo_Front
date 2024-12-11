@@ -1,0 +1,5 @@
+@media (max-width: 1139px) and (min-width: 1024px) {
+    .navbar-items {
+      justify-content: space-evenly; /* Équilibrer les éléments */
+    }
+  }

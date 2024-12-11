@@ -26,6 +26,7 @@ import {
 import { IoClose } from "react-icons/io5";
 import { MdContactMail, MdOutlineMenu } from "react-icons/md";
 import { GiNightVision } from "react-icons/gi";
+import './index.css'
 type Props = {};
 interface UserProfile {
   id: number;
@@ -339,6 +340,7 @@ function Header({}: Props) {
 
     checkAuthStatus();
   }, [router]);
+
   const linkClasses = (path: string) =>
     `px-4 py-2 text-sm font-medium ${
       pathname === path ? "text-primary bg-white" : "text-white bg-primary"
@@ -349,7 +351,8 @@ function Header({}: Props) {
       <header className="select-none fixed top-0 left-0 right-0 bg-white shadow-lg z-50 backdrop-filter backdrop-blur-lg bg-opacity-70">
         <nav className="max-w-7xl py-1.5 pt-4 mx-auto px-4 sm:px-6 lg:px-8">
           {/* Desktop layout */}
-          <div className="hidden lg:flex items-center justify-center space-x-32 h-20">
+          <div className="hidden lg:flex items-center justify-center space-x-16 lg:space-x-32 h-20">
+            {/* Logo plastikoo */}
             <Reveal>
               <div className="flex-shrink-0 flex items-center">
                 <Link href="/" className="text-dark font-bold text-lg">
@@ -357,14 +360,68 @@ function Header({}: Props) {
                 </Link>
               </div>
             </Reveal>
-            <div className="justify-center items-center block space-y-7">
-              <p className="text-primary text-center font-bold">
+
+            {/* Votre engagement et les nav bars */}
+            <div className="flex flex-col justify-center items-center space-y-6 md:space-y-6">
+              <p
+                style={
+                  {
+                    fontFamily:"Montserrat",
+                    fontWeight:700,
+                  }
+                } 
+                className="text-primary text-center font-bold lg:text-[20px] max-lg:text-[10px]">
                 Votre engagement pour un avenir durable se construit ici !
               </p>
-              <div className="flex items-center font-semibold">
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="hidden sm:ml-6 sm:block">
+                  <div className="flex space-x-0">
+                    <Link href="/" className={linkClasses("/")}>Accueil</Link>
+                    <Link href="/vision" className={`${linkClasses("/vision")}`}>
+                      Notre vision
+                    </Link>
+                    <Link href="/products" className={linkClasses("/products")}>
+                      Nos produits
+                    </Link>
+                    <Link href="/services" className={linkClasses("/services")}>
+                      Nos services
+                    </Link>
+                    <Link href="/contact" className={linkClasses("/contact")}>
+                      Contact
+                    </Link>
+                  </div>
+                </div>
+                {/* <ul className="flex flex-wrap items-center justify-center font-semibold">
+                  <Reveal>
+                    <li>
+                      <Link href="/" className={linkClasses("/")}>Accueil</Link>
+                    </li>
+                    <li>
+                      <Link href="/vision" className={`${linkClasses("/vision")} hover:bg-secondary transition duration-200`}>
+                        Notre vision
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/products" className={linkClasses("/products")}>
+                        Nos produits
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/services" className={linkClasses("/services")}>
+                        Nos services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/contact" className={linkClasses("/contact")}>
+                        Contact
+                      </Link>
+                    </li>
+                  </Reveal>
+                </ul> */}
+              {/* <div className="flex justify-center gap-6 md:gap-8 lg:gap-12 font-semibold">
                 <Reveal>
-                  <Link href="/" className={linkClasses("/")}>
-                    Accueil
+                  <Link href="/vision" className={linkClasses("/vision")}>
+                    Notre vision
                   </Link>
                 </Reveal>
                 <Reveal>
@@ -387,8 +444,11 @@ function Header({}: Props) {
                     Contact
                   </Link>
                 </Reveal>
+              </div> */}
               </div>
             </div>
+
+            {/* Bouton notre communaute */}
             {isAuthenticated ? (
               <div className=" flex items-center space-x-4">
                 <div className="select-none">
@@ -442,7 +502,9 @@ function Header({}: Props) {
               </Link>
             )}
           </div>
-          <div className="sm:hidden relative items-center justify-between flex flex-row my-1">
+           
+           {/* Mobile layout */}
+          <div className="md:hidden relative items-center justify-between flex flex-row my-1">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="text-dark font-bold text-lg">
                 <Image src="/logo.png" width={130} height={130} alt="logo" />
@@ -453,6 +515,7 @@ function Header({}: Props) {
               className="text-primary w-10 h-10"
             />
           </div>
+
           <MobileDrawer isOpen={isDrawerOpen} onClose={handleDrawerToggle} />
         </nav>
       </header>

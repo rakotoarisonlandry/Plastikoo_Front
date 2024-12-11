@@ -40,7 +40,7 @@ const SectionHistoire: React.FC<Props> = () => {
             <h1 className="text-3xl font-bold text-red-500 text-center mb-12">Notre mission</h1>
         </div>
         <div className="absolute bottom-0 right-0 p-8">
-          <Image width={48} height={48} src="/logoVert.png" alt="Logo" className="h-48 w-48 object-contain"/>
+          <Image width={48} height={48} src="/logoVert.png" alt="Logo" className="h-48 w-48 object-contain  opacity-20"/>
         </div>
       </div>
     </section>

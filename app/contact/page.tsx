@@ -7,7 +7,7 @@ const Contact = (props: Props) => {
   return (
     <div className="flex flex-col lg:flex-row w-full h-auto lg:h-screen bg-secondary">
       {/* Image Section */}
-      <div className="relative w-full lg:w-1/2 h-[300px] lg:h-full">
+      <div className="relative w-full lg:w-1/2 h-[800px] lg:h-full">
         <Image
           src="/contact.png"
           alt="Contact image"
@@ -17,17 +17,17 @@ const Contact = (props: Props) => {
 
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-start justify-center text-white p-6 lg:p-14">
           <h1 
-            className="text-2xl lg:text-4xl font-semibold mb-4"
+            className="text-2xl lg:text-4xl text-[28px] sm:text-[30px] lg:text-[40px font-semibold mb-4"
             style= {{
               fontFamily:"Montserrat",
               fontWeight: 600,
-              fontSize:40
             }}
           >
             Ensemble, nous pourrons bâtir un avenir propre et durable.
           </h1>
 
           <h2 
+            className="text-[12px] sm:text-[22px] lg:text-[32px"
             style= {{
               fontFamily:"Montserrat",
               fontWeight: 900,
@@ -60,13 +60,12 @@ const Contact = (props: Props) => {
 
       {/* Contact Form Section */}
       <div className="w-full lg:w-1/2 bg-secondary p-8 flex flex-col justify-center items-center">
-        <div className="pl-4 lg:pl-28 pr-4 lg:pr-7">
+        <div className="pl-4 lg:pl-20 pr-4 lg:pr-7">
           <h2 
-            className="text-2xl lg:text-3xl font-bold mb-6 text-white"
+            className="text-2xl lg:text-3xl text-[28px] sm:text-[30px] lg:text-[40px font-bold mb-6 text-white"
             style= {{
               fontFamily:"Montserrat",
-              fontWeight: 600,
-              fontSize:40
+              fontWeight: 600
             }}
           >
             Contactez-nous
@@ -85,6 +84,7 @@ const Contact = (props: Props) => {
             formulaire ci-dessous avec vos coordonnées et votre demande.
           </p>
         </div>
+
         <form className="w-full max-w-lg">
           <div className="flex flex-col lg:flex-row mb-4">
             <div className="w-full lg:w-1/2 mr-0 lg:mr-2 mb-4 lg:mb-0">
