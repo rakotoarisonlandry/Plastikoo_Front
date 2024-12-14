@@ -1,9 +1,53 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { getApiBasePath } from '../../lib/apiConfig'
 
 type Props = {};
 
 const Contact = (props: Props) => {
+  const [formData, setFormData] = useState({
+    nom: "",
+    prenom: "",
+    email: "",
+    type_contact: "Notre partenaire",
+    message: "",
+  });
+
+  const handleChange = (e: { target: { id: any; value: any; }; }) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const handleSubmit = async () => {
+    console.log('niditra ato')
+    try {
+      const response = await fetch(`${getApiBasePath()}/contact/add`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const msg = await response.json()
+        alert(`${msg.message}`);
+        setFormData({
+          nom: "",
+          prenom: "",
+          email: "",
+          type_contact: "Notre partenaire",
+          message: "",
+        });
+      } else {
+        alert("Une erreur est survenue. Veuillez réessayer.");
+      }
+    } catch (error) {
+      console.error("Erreur :", error);
+      alert("Impossible d'envoyer le message. Vérifiez votre connexion.");
+    }
+  };
+
   return (
     <div className="flex flex-col lg:flex-row w-full h-auto lg:h-screen bg-secondary">
       {/* Image Section */}
@@ -85,7 +129,12 @@ const Contact = (props: Props) => {
           </p>
         </div>
 
-        <form className="w-full max-w-lg">
+        <form className="w-full max-w-lg"
+          onSubmit={(e) => {
+            e.preventDefault(); // Empêche le rechargement de la page
+            handleSubmit();
+          }}
+        >
           <div className="flex flex-col lg:flex-row mb-4">
             <div className="w-full lg:w-1/2 mr-0 lg:mr-2 mb-4 lg:mb-0">
               <label
@@ -96,9 +145,11 @@ const Contact = (props: Props) => {
               </label>
               <input
                 className="shadow appearance-none border text-sm rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="name"
+                id="nom"
                 type="text"
                 placeholder="Votre nom"
+                value={formData.nom}
+                onChange={handleChange}
               />
             </div>
             <div className="w-full lg:w-1/2 ml-0 lg:ml-2">
@@ -110,9 +161,11 @@ const Contact = (props: Props) => {
               </label>
               <input
                 className="shadow appearance-none border text-sm rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="phone"
+                id="prenom"
                 type="text"
                 placeholder="Votre prénom"
+                value={formData.prenom}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -129,6 +182,8 @@ const Contact = (props: Props) => {
                 id="email"
                 type="email"
                 placeholder="Votre adresse e-mail"
+                value={formData.email}
+                onChange={handleChange}
               />
             </div>
             <div className="w-full lg:w-1/2 ml-0 lg:ml-2">
@@ -140,7 +195,9 @@ const Contact = (props: Props) => {
               </label>
               <select
                 className="shadow appearance-none border rounded w-full text-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="reason"
+                id="type_contact"
+                value={formData.type_contact}
+                onChange={handleChange}
               >
                 <option>Notre partenaire</option>
                 <option>Information</option>
@@ -161,12 +218,14 @@ const Contact = (props: Props) => {
               id="message"
               rows={4}
               placeholder="Votre message"
+              value={formData.message}
+              onChange={handleChange}
             ></textarea>
           </div>
           <div className="flex items-center justify-end">
             <button
               className="bg-dark text-white font-bold hover:scale-105 transition duration-300 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
+              type="submit"
             >
               Envoyer
             </button>

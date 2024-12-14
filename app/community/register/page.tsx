@@ -67,7 +67,7 @@ const SignUp: React.FC = () => {
       });
 
       const response = await fetch(
-        `http://${getApiBasePath()}/utilisateur/inscription`,
+        `${getApiBasePath()}/utilisateur/inscription`,
         {
           method: "POST",
           headers: {
